@@ -16,6 +16,7 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
     private Vector2 barrelPosition;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private GameObject CupHint;
 
     private void Awake()
     {
@@ -23,12 +24,15 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
         canvasGroup = GetComponent<CanvasGroup>();
         startPosition = rectTransform.anchoredPosition;
         barrelPosition = GameObject.FindWithTag("Barrel").GetComponent<RectTransform>().anchoredPosition;
+        CupHint = GameObject.FindWithTag("CupHint");
+        CupHint.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
+        CupHint.SetActive(true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -38,6 +42,7 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        CupHint.SetActive(false);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (rectTransform.anchoredPosition != barrelPosition) {
