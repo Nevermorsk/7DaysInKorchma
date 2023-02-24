@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Barrel
+  - CupHint
   layers:
   - Default
   - TransparentFX
