@@ -1578,7 +1578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetColor: {r: 1, g: 0, b: 0, a: 1}
   colorThreshold: 0.1
-  pancake: {fileID: 0}
+  pancake: {fileID: 21300000, guid: bc3e37ef3b5a4264ba2b516ec4a12cef, type: 3}
   pancakeMake: 0
 --- !u!1 &1398426251
 GameObject:
