@@ -9,7 +9,6 @@ public class OrderSystem : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float delay;
-    [SerializeField] private Sprite test;
     [SerializeField] private Sprite[] icons; 
 
     private GameObject shadow;
