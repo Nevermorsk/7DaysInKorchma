@@ -9,38 +9,66 @@ public class GameManager : MonoBehaviour
     private GameObject Order;
     private GameObject FryingPan;
 
+    private bool hidden;
+
+    private void Awake()
+    {
+        int counter = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter;
+
+        switch (counter)
+        {
+            case 1:
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                break;
+            case 3:
+                hidden = true;
+                GameObject.FindWithTag("Order").SetActive(false);
+                GameObject.FindWithTag("FryingPan").SetActive(false);
+                GameObject.FindWithTag("OrderShadow").SetActive(false);
+                break;
+            case 5:
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                break;
+        }
+    }
+
     private void Start()
     {
-        Order = GameObject.FindWithTag("Order");
-        FryingPan = GameObject.FindWithTag("FryingPan");
+        if (!hidden)
+        {
+            Order = GameObject.FindWithTag("Order");
+            FryingPan = GameObject.FindWithTag("FryingPan");
+        }
 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             ingridients[i].SetActive(false);
         }
 
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             vino[i].SetActive(false);
         }
 
-        SceneSwitcher.SetActive(false);
+        if (!hidden) {
+            SceneSwitcher.SetActive(false);
 
-        FryingPan.GetComponent<ColorCheck>().done = false;
-        FryingPan.GetComponent<ColorCheck>().pancakeMakeFirst = false;
-        FryingPan.GetComponent<ColorCheck>().pancakeMakeFinal = false;
+            FryingPan.GetComponent<ColorCheck>().done = false;
+            FryingPan.GetComponent<ColorCheck>().pancakeMakeFirst = false;
+            FryingPan.GetComponent<ColorCheck>().pancakeMakeFinal = false;
+        } else
+        {
+            SceneSwitcher.SetActive(true);
+        }
     }
 
    void Update()
     {
-        if (Order.GetComponent<OrderSystem>().timerDone)
-        {
-            Debug.Log("You loser");
-        }
-
-        if (FryingPan.GetComponent<ColorCheck>().done)
-        {
-            SceneSwitcher.SetActive(true);
+        if (!hidden) { 
+            if (FryingPan.GetComponent<ColorCheck>().done)
+            {
+                SceneSwitcher.SetActive(true);
+            }
         }
     }
 }

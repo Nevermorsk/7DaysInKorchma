@@ -16,6 +16,7 @@ public class DialogueSystem : MonoBehaviour
 
     private int index;
     private int counter;
+
     private void Start()
     {
         counter = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter;
@@ -27,15 +28,28 @@ public class DialogueSystem : MonoBehaviour
         {
             case 0:
                 lines[0] = "Здравствуйте, можно блин с сахаром?";
-                lines[1] = "Будет сделано";
+                lines[1] = "Будет сделано.";
                 authors[0] = "Заказчик";
                 authors[1] = "Вы";
                 break;
             case 2:
-                lines[0] = "Спасибо, вот деньги";
-                lines[1] = "Всего доброго";
+                lines[0] = "Спасибо, вот деньги.";
+                lines[1] = "Всего доброго.";
                 authors[0] = "Заказчик";
                 authors[1] = "Вы";
+                GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money += 60;
+                break;
+            case 4:
+                lines[0] = "Здравствуйте, блины остались?";
+                lines[1] = "Да, конечно остались.";
+                authors[0] = "Заказчик";
+                authors[1] = "Вы";
+                break;
+            case 6:
+                lines[0] = "Прошу.";
+                lines[1] = "Огромное спасибо, досвидание.";
+                authors[0] = "Вы";
+                authors[1] = "Заказчик";
                 GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money += 60;
                 break;
         }

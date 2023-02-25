@@ -20,7 +20,6 @@ public class ColorCheck : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("start");
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = circle;
         ingredientsScript.addedIngredient = null;
@@ -31,7 +30,6 @@ public class ColorCheck : MonoBehaviour
         if (!pancakeMakeFirst && CheckColor(targetColor)) {
             spriteRenderer.sprite = cap;
             pancakeMakeFirst = true;
-            Debug.Log("StartTimer1");
             StartCoroutine(Delay1(cookingTime));
             
         }
@@ -39,7 +37,6 @@ public class ColorCheck : MonoBehaviour
         {
             spriteRenderer.sprite = cap;
             pancakeMakeFinal = true;
-            Debug.Log("StartTimer2");
             ingredientsScript.canAdd = false;
             StartCoroutine(Delay2(secondCookingTime));
           
@@ -49,14 +46,12 @@ public class ColorCheck : MonoBehaviour
     IEnumerator Delay1(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("EndTimer");
         spriteRenderer.sprite = pancake;
         ingredientsScript.canAdd = true;
     }    
     IEnumerator Delay2(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("EndTimer");
         spriteRenderer.sprite = cookedPancake;
         done= true;
     }
