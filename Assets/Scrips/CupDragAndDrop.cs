@@ -18,8 +18,30 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
     private CanvasGroup canvasGroup;
     private GameObject CupHint;
 
+    private bool _isFilled;
+    private bool _isDraggable;
+
+    void Update()
+    {
+        _isFilled = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isFilled;
+        _isDraggable = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isDraggable;
+
+        if (_isFilled)
+        {
+            GetComponent<Image>().sprite = filledSprite;
+            rectTransform.sizeDelta = new Vector2(60, 67);
+        } else
+        {
+            GetComponent<Image>().sprite = rightSprite;
+            rectTransform.sizeDelta = new Vector2(95, 57);
+        }
+    }
+
     private void Awake()
     {
+        _isFilled = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isFilled;
+        _isDraggable = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isDraggable;
+
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         startPosition = rectTransform.anchoredPosition;
@@ -30,13 +52,16 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!_isDraggable) { return; }
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
+        if (_isFilled) { return; }
         CupHint.SetActive(true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!_isDraggable) { return; }
         rectTransform.anchoredPosition += eventData.delta;
     }
 

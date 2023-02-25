@@ -73,14 +73,14 @@ public class ColorCheck : MonoBehaviour
         // Сравниваем относительные площади цвета и выводим результат
         if (alphaArea * colorThreshold > targetArea)
         {
-            Debug.Log("Color did not match.");
-            Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
+            //Debug.Log("Color did not match.");
+            //Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
             return false;
         }
         else
         {
-            Debug.Log("Color matched!");
-            Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
+            //Debug.Log("Color matched!");
+            //Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
             return true; 
         }
     }

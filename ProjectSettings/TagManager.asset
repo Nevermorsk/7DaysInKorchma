@@ -7,6 +7,7 @@ TagManager:
   - Barrel
   - CupHint
   - OrderShadow
+  - Speaker
   layers:
   - Default
   - TransparentFX
