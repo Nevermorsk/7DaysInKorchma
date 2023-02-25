@@ -13,18 +13,11 @@ public class MainMenuButtonsScript : MonoBehaviour
 
     void Start()
     {
-        start.onClick.AddListener(() => {
-            SceneManager.LoadScene("Window 1");
-        });
-        exit.onClick.AddListener(() => {
-            Application.Quit();        });
-        settings.onClick.AddListener(() => {
-            SceneManager.LoadScene("Settings");
-        });
+
     }
     public void StartClc()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Window 1");
     }    
     public void SettingsClc()
     {
