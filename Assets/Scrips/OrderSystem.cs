@@ -16,7 +16,7 @@ public class OrderSystem : MonoBehaviour
 
     private GameObject[] childs = new GameObject[3];
 
-    public string[] receipt = new string[3];
+    public string receipt;
 
     [HideInInspector] public bool timerDone = false;
 
@@ -30,15 +30,13 @@ public class OrderSystem : MonoBehaviour
             childs[i].GetComponent<Image>().color = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
         }
 
-        for (int i = 0; i < 2;i++)
-        {
-            if (receipt[i] != "")
+            if (receipt != "")
             {
-                Image image = childs[i].GetComponent<Image>();
+                Image image = childs[1].GetComponent<Image>();
                 Color currentColor = image.color;
                 image.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
 
-                switch (receipt[i])
+                switch (receipt)
                 {
                   case "сахар":
                     image.sprite = icons[5];
@@ -60,7 +58,6 @@ public class OrderSystem : MonoBehaviour
                     break;
                 }
             }
-        }
 
         shadow = GameObject.FindWithTag("OrderShadow");
         _currentSprite = 0;
