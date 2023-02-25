@@ -7,8 +7,15 @@ public class DontDestroy : MonoBehaviour
     public int counter;
     public int money;
 
-    private void Start()
+    void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("DontDestroy");
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 }
