@@ -13,7 +13,7 @@ public class MainMenuButtonsScript : MonoBehaviour
     void Start()
     {
         start.onClick.AddListener(() => {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Window 1");
         });
         exit.onClick.AddListener(() => {
             Application.Quit();        });

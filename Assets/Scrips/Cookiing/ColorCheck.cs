@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColorCheck : MonoBehaviour
 {
+    [SerializeField] private Sprite circle;
 
     public float cookingTime = 30f;
     public float secondCookingTime = 10f;
@@ -12,13 +13,17 @@ public class ColorCheck : MonoBehaviour
     public Sprite pancake;
     public Sprite cookedPancake;
     public Sprite cap;
-    public bool pancakeMakeFirst = false;
-    public bool pancakeMakeFinal = false;
+    [HideInInspector] public bool pancakeMakeFirst = false;
+    [HideInInspector] public bool pancakeMakeFinal = false;
+    [HideInInspector] public bool done = false;
     private SpriteRenderer spriteRenderer;
     
     void Start()
     {
+        Debug.Log("start");
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = circle;
+        ingredientsScript.addedIngredient = null;
     }
 
     void Update()
@@ -53,13 +58,12 @@ public class ColorCheck : MonoBehaviour
         yield return new WaitForSeconds(time);
         Debug.Log("EndTimer");
         spriteRenderer.sprite = cookedPancake;
-
+        done= true;
     }
     public bool CheckColor(Color targetColor)
     {
         float alphaArea = spriteRenderer.color.a * spriteRenderer.bounds.size.x * spriteRenderer.bounds.size.y;
 
-        // Вычисляем относительную площадь целевого цвета
         float targetArea = 0f;
         foreach (var sprite in spriteRenderer.sprite.texture.GetPixels())
         {
@@ -70,17 +74,12 @@ public class ColorCheck : MonoBehaviour
         }
         targetArea /= spriteRenderer.sprite.texture.width * spriteRenderer.sprite.texture.height;
 
-        // Сравниваем относительные площади цвета и выводим результат
         if (alphaArea * colorThreshold > targetArea)
         {
-            //Debug.Log("Color did not match.");
-            //Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
             return false;
         }
         else
         {
-            //Debug.Log("Color matched!");
-            //Debug.Log($"{targetArea} > {alphaArea * colorThreshold}");
             return true; 
         }
     }

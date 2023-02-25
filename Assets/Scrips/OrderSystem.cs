@@ -10,7 +10,6 @@ public class OrderSystem : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float delay;
     [SerializeField] private Sprite[] icons;
-    [SerializeField] private GameObject SceneSwitcher;
 
     private GameObject shadow;
     private int _currentSprite;
@@ -18,6 +17,8 @@ public class OrderSystem : MonoBehaviour
     private GameObject[] childs = new GameObject[3];
 
     public string[] receipt = new string[3];
+
+    [HideInInspector] public bool timerDone = false;
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class OrderSystem : MonoBehaviour
             childs[i].GetComponent<Image>().color = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
         }
 
-        for (int i = 0; i < 3;i++)
+        for (int i = 0; i < 2;i++)
         {
             if (receipt[i] != "")
             {
@@ -78,14 +79,13 @@ public class OrderSystem : MonoBehaviour
     {
         if (_currentSprite == sprites.Length)
         {
-            SceneSwitcher.SetActive(true);
             Destroy(gameObject);
             StopAllCoroutines();
             shadow.SetActive(false);
+            timerDone = true;
         }
         else
         {
-            SceneSwitcher.SetActive(false);
             GetComponent<Image>().sprite = sprites[_currentSprite];
             StartCoroutine(Delay());
         }
