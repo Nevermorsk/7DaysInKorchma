@@ -1,12 +1,19 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ColorCheck : MonoBehaviour
 {
+
+    public float cookingTime = 30f;
+    public float secondCookingTime = 10f;
+    public float colorThreshold = 0.05f;
     public Color targetColor;
-    public float colorThreshold = 0.1f;
     public Sprite pancake;
-    public bool pancakeMake = false;
+    public Sprite cookedPancake;
+    public Sprite cap;
+    public bool pancakeMakeFirst = false;
+    public bool pancakeMakeFinal = false;
     private SpriteRenderer spriteRenderer;
     
     void Start()
@@ -16,10 +23,37 @@ public class ColorCheck : MonoBehaviour
 
     void Update()
     {
-        if (!pancakeMake && CheckColor(targetColor)) {
-            spriteRenderer.sprite = pancake;
-            pancakeMake = true;
+        if (!pancakeMakeFirst && CheckColor(targetColor)) {
+            spriteRenderer.sprite = cap;
+            pancakeMakeFirst = true;
+            Debug.Log("StartTimer1");
+            StartCoroutine(Delay1(cookingTime));
+            
         }
+        else if (!pancakeMakeFinal && ingredientsScript.addedIngredient != null)
+        {
+            spriteRenderer.sprite = cap;
+            pancakeMakeFinal = true;
+            Debug.Log("StartTimer2");
+            ingredientsScript.canAdd = false;
+            StartCoroutine(Delay2(secondCookingTime));
+          
+        }
+    }
+
+    IEnumerator Delay1(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("EndTimer");
+        spriteRenderer.sprite = pancake;
+        ingredientsScript.canAdd = true;
+    }    
+    IEnumerator Delay2(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("EndTimer");
+        spriteRenderer.sprite = cookedPancake;
+
     }
     public bool CheckColor(Color targetColor)
     {
