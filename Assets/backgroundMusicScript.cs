@@ -9,7 +9,7 @@ public class backgroundMusicScript : MonoBehaviour
     void Awake()
     {
         Debug.Log($"{PlayerPrefs.GetFloat("musicVolume")} {PlayerPrefs.GetFloat("effectVolume")} {PlayerPrefs.GetFloat("dialogueVolume")}");
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Speaker");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
 
         if (objs.Length > 1)
         {

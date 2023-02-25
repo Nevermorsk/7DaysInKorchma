@@ -11,6 +11,7 @@ TagManager:
   - Order
   - FryingPan
   - DontDestroy
+  - music
   layers:
   - Default
   - TransparentFX

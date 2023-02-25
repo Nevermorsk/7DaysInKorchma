@@ -204,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d20eda4cb66dd4da7159520fe71040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundMusic: {fileID: 1004943176}
   musicMixer: {fileID: -3425884631944737572, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
   effectsMixer: {fileID: -481587060114618365, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
   dilogueMixer: {fileID: 2148079158981192656, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
@@ -511,9 +510,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1004943178}
   - component: {fileID: 1004943177}
+  - component: {fileID: 1004943179}
   m_Layer: 0
   m_Name: Background_music
-  m_TagString: Untagged
+  m_TagString: music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,6 +629,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004943179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004943176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7e5604ce0144d4bb4e9f1e62f91a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: -3425884631944737572, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
+  effectsMixer: {fileID: -481587060114618365, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
+  dilogueMixer: {fileID: 2148079158981192656, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
 --- !u!1 &1226265737
 GameObject:
   m_ObjectHideFlags: 0
