@@ -7,12 +7,17 @@ public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] string[] lines;
+    [SerializeField] string[] authors;
     [SerializeField] float TextSpeed;
+    [SerializeField] private GameObject SceneSwitcher;
+    [SerializeField] private TextMeshProUGUI nameField;
 
     private int index;
     private void Start()
     {
+        SceneSwitcher.SetActive(false);
         text.text = string.Empty;
+        nameField.text = authors[index];
         StartDialogue();
     }
 
@@ -40,6 +45,7 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        nameField.text = authors[index];
         foreach (char c in lines[index].ToCharArray())
         {
             text.text += c;
@@ -57,6 +63,7 @@ public class DialogueSystem : MonoBehaviour
         } else
         {
             gameObject.SetActive(false);
+            SceneSwitcher.SetActive(true);
         }
     }
 }

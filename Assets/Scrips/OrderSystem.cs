@@ -9,7 +9,8 @@ public class OrderSystem : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float delay;
-    [SerializeField] private Sprite[] icons; 
+    [SerializeField] private Sprite[] icons;
+    [SerializeField] private GameObject SceneSwitcher;
 
     private GameObject shadow;
     private int _currentSprite;
@@ -77,13 +78,15 @@ public class OrderSystem : MonoBehaviour
     {
         if (_currentSprite == sprites.Length)
         {
+            SceneSwitcher.SetActive(true);
             Destroy(gameObject);
             StopAllCoroutines();
             shadow.SetActive(false);
         }
         else
         {
-            GetComponent<UnityEngine.UI.Image>().sprite = sprites[_currentSprite];
+            SceneSwitcher.SetActive(false);
+            GetComponent<Image>().sprite = sprites[_currentSprite];
             StartCoroutine(Delay());
         }
     }
