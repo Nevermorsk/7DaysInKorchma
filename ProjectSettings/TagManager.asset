@@ -12,6 +12,7 @@ TagManager:
   - FryingPan
   - DontDestroy
   - music
+  - pause
   layers:
   - Default
   - TransparentFX
