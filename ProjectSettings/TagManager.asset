@@ -8,6 +8,9 @@ TagManager:
   - CupHint
   - OrderShadow
   - Speaker
+  - Order
+  - FryingPan
+  - DontDestroy
   layers:
   - Default
   - TransparentFX

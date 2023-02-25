@@ -7,8 +7,8 @@ public class BarrelDragAndDrop : MonoBehaviour, IDropHandler
 {
     [SerializeField] private float delay;
 
-    public bool isDraggable = true;
-    public bool isFilled = false;
+    [HideInInspector] public bool isDraggable = true;
+    [HideInInspector] public bool isFilled = false;
 
     public void OnDrop(PointerEventData eventData)
     {

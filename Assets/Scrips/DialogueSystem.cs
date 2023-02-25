@@ -2,20 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] string[] lines;
-    [SerializeField] string[] authors;
+    private string [] lines = new string[10];
+    private string [] authors = new string[10];
     [SerializeField] float TextSpeed;
     [SerializeField] private GameObject SceneSwitcher;
     [SerializeField] private TextMeshProUGUI nameField;
+    [SerializeField] private Sprite[] krips;
 
     private int index;
+    private int counter;
     private void Start()
     {
+        counter = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter;
+
         SceneSwitcher.SetActive(false);
+        GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = krips[Random.Range(0, krips.Length)];
+
+        switch (counter)
+        {
+            case 0:
+                lines[0] = "Здравствуйте, можно блин с сахаром?";
+                lines[1] = "Будет сделано";
+                authors[0] = "Заказчик";
+                authors[1] = "Вы";
+                break;
+            case 2:
+                lines[0] = "Спасибо, вот деньги";
+                lines[1] = "Всего доброго";
+                authors[0] = "Заказчик";
+                authors[1] = "Вы";
+                GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money += 60;
+                break;
+        }
+
+        lines = lines.Where(x => x != null).ToArray();
+
         text.text = string.Empty;
         nameField.text = authors[index];
         StartDialogue();
@@ -46,11 +72,12 @@ public class DialogueSystem : MonoBehaviour
     IEnumerator TypeLine()
     {
         nameField.text = authors[index];
-        foreach (char c in lines[index].ToCharArray())
-        {
-            text.text += c;
-            yield return new WaitForSeconds(TextSpeed);
-        }
+            foreach (char c in lines[index].ToCharArray())
+            {
+                text.text += c;
+                yield return new WaitForSeconds(TextSpeed);
+            }
+        
     }
 
     private void IsNextLine()

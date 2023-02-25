@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class MoneyScript : MonoBehaviour
 {
-    public int money;
+    private int money;
     private TextMeshProUGUI text;
 
     private void Start()
     {
+        money = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money;
         text = GetComponent<TextMeshProUGUI>();
         text.text = money+"ð";
     }
