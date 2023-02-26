@@ -5,6 +5,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Timers;
+using System.Data;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -18,14 +19,15 @@ public class DialogueSystem : MonoBehaviour
 
     [SerializeField] float TextSpeed;
     [SerializeField] private GameObject SceneSwitcher;
-    [SerializeField] private Sprite[] krips;
-    [SerializeField] private Sprite[] charachters;
+    public Sprite[] krips;
+    public Sprite[] charachters;
+    [SerializeField] private GameObject AcceptBtn;
+    [SerializeField] private GameObject DeclineBtn;
 
     private int index;
 
     private void Start()
     {
-        Hide();
         SceneSwitcher.SetActive(false);
 
         lines.Clear();
@@ -103,15 +105,15 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    public static void Hide()
+    public void Hide()
     {
-        GameObject.FindWithTag("accept").SetActive(false);
-        GameObject.FindWithTag("decline").SetActive(false);
+        AcceptBtn.SetActive(false);
+        DeclineBtn.SetActive(false);
     }
 
-    public static void Show(int day)
+    public void Show()
     {
-        GameObject.FindWithTag("accept").SetActive(true);
-        GameObject.FindWithTag("decline").SetActive(true);
+        AcceptBtn.SetActive(false);
+        DeclineBtn.SetActive(false);
     }
 }

@@ -30,12 +30,6 @@ public class GameManager : MonoBehaviour
             GameObject.Find(pair.Key).SetActive(pair.Value);
         }
 
-
-/*        for (int i = 0; i < 6; i++)
-        {
-            ingridients[i].SetActive(false);
-        }*/
-
         for (int i = 0; i < 3; i++)
         {
             vino[i].SetActive(false);

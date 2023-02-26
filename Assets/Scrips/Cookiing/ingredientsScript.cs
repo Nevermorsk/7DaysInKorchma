@@ -11,7 +11,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("apples");
-            addedIngredient = "сахар";
+            addedIngredient = "€блоки";
         }
     }    
     public void nutella()

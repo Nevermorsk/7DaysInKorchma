@@ -17,6 +17,7 @@ TagManager:
   - ingredients
   - resetBtn
   - dayclip
+  - dialog
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,7 @@ public class DontDestroy : MonoBehaviour
         { "sgushenka", false },
         { "salomon", false },
         { "nutella", false },
-        { "starberry", true },
+        { "starberry", false },
         { "sugar", true },
         { "upgrade", false }
 };
