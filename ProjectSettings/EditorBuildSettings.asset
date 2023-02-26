@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/days/Day1.unity
     guid: 3f3fc1628cedc3542a79bbc75a859ffa
+  - enabled: 1
+    path: Assets/Scenes/Transition/scene1.unity
+    guid: 7f22a35dd7b895946b7399df04624727
+  - enabled: 1
+    path: Assets/Scenes/Transition/scene2.unity
+    guid: d116303f82390634d868cac946e405d0
+  - enabled: 1
+    path: Assets/Scenes/Transition/LoadScene.unity
+    guid: 0c24e5df502c90c4ba9069359eb68923
   m_configObjects: {}

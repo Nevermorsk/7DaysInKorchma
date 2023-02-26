@@ -17,7 +17,7 @@ public class MainMenuButtonsScript : MonoBehaviour
     }
     public void StartClc()
     {
-        SceneManager.LoadScene("Window 1");
+        transitionScipt.LoadScene("Window 1", 1);
     }    
     public void SettingsClc()
     {
