@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Order : MonoBehaviour
 {
@@ -70,6 +71,22 @@ public class Order : MonoBehaviour
                         GameObject.FindWithTag("Order").SetActive(false);
                         GameObject.FindWithTag("FryingPan").SetActive(false);
                         GameObject.FindWithTag("OrderShadow").SetActive(false);
+                        break;
+                    case 11:
+                        if (DontDestroy.definitions["day2"])
+                        {
+                            GameManager.hidden = false;
+                            OrderSystem.receipt = "сахар";
+                        } else
+                        {
+                            GameManager.hidden = true;
+                            GameObject.FindWithTag("Order").SetActive(false);
+                            GameObject.FindWithTag("FryingPan").SetActive(false);
+                            GameObject.FindWithTag("OrderShadow").SetActive(false);
+                        }
+                        break;
+                    case 13:
+                        SceneManager.LoadScene("End");
                         break;
                 }
                 break;

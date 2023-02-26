@@ -11,12 +11,16 @@ public class Dialogues : MonoBehaviour
                 switch (counter)
                 {
                     case 0:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Здравствуйте, можно блин с сахаром?|Заказчик");
                         DialogueSystem.lines.Add("Будет сделано.|Вы");
                         DialogueSystem.authorSprite.Add(krips[0]);
                         DialogueSystem.authorSprite.Add(krips[0]);
                         break;
                     case 2:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Спасибо, вот деньги.|Заказчик");
                         DialogueSystem.lines.Add("Всего доброго.|Вы");
                         DialogueSystem.authorSprite.Add(krips[0]);
@@ -24,12 +28,16 @@ public class Dialogues : MonoBehaviour
                         DialogueSystem.moneyChange(60);
                         break;
                     case 4:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Здравствуйте, блины остались?|Заказчик");
                         DialogueSystem.lines.Add("Да, конечно остались.|Вы");
                         DialogueSystem.authorSprite.Add(krips[1]);
                         DialogueSystem.authorSprite.Add(krips[1]);
                         break;
                     case 6:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Прошу.|Вы");
                         DialogueSystem.lines.Add("Огромное спасибо, досвидание.|Заказчик");
                         DialogueSystem.authorSprite.Add(krips[1]);
@@ -37,6 +45,8 @@ public class Dialogues : MonoBehaviour
                         DialogueSystem.moneyChange(60);
                         break;
                     case 8:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Здравствуйте, вы имеете честь обслуживать Звездочёта всего Бофора, Франсиса светлей...|Звездочёт");
                         DialogueSystem.lines.Add("Какой же ты умничка, что заказывать будете.|Вы");
                         DialogueSystem.lines.Add("Вы не имеете никакого морального и физического права меня так бестактно переби…|Звездочёт");
@@ -76,6 +86,8 @@ public class Dialogues : MonoBehaviour
 
                         break;
                     case 10:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Я говорил, что ни слова не скажу вам, забудьте.|Звездочёт");
                         DialogueSystem.lines.Add("Что забыть?|Вы");
                         DialogueSystem.lines.Add("ХА-ХА. ОЧЕНЬ СМЕШНО. Ваш блин пережарен|Звездочёт");
@@ -88,12 +100,16 @@ public class Dialogues : MonoBehaviour
                         }
                         break;
                     case 12:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Я понимаю, что рождённые для раскопок в шахтах выучены делать одно дело и не вникать в более тонкие материи, но как ты, каменно рождённый, смог опять испортить блин?|Звездочёт");
                         DialogueSystem.lines.Add("ХОРОШО, ПЕРЕДЕЛАЕМ НАШЕМУ ВЕЛИКОМУ ТЕОРЕТИКУ РЕАЛЬНО СУЩЕСТВУЮЩИЙ БЛИН! Надеюсь его остро наточенный мозг сможет осознать наши тупые стандарты качества|Вы");
                         DialogueSystem.authorSprite.Add(charachters[0]);
                         DialogueSystem.authorSprite.Add(charachters[0]);
                         break;
                     case 14:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
                         DialogueSystem.lines.Add("Вкушайте наши дуратские блины, никак не соответствующие правилам геометрии.|Вы");
                         DialogueSystem.moneyChange(100);
                         DialogueSystem.authorSprite.Add(charachters[0]);
@@ -135,37 +151,53 @@ public class Dialogues : MonoBehaviour
                 switch(counter)
                     {
                         case 0:
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
+                        DialogueSystem.canNextDay = false;
+                            DontDestroy.byedItems["apples"] = true;
                             DialogueSystem.lines.Add("Слышал у вас появились блины с яблоками, можно мне один?|Заказчик");
                             DialogueSystem.lines.Add("Момент|Вы");
                             DialogueSystem.authorSprite.Add(krips[2]);
                             DialogueSystem.authorSprite.Add(krips[2]);
                             break;
                         case 2:
-                            DialogueSystem.lines.Add("Приятного аппетита");
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
+                        DialogueSystem.lines.Add("Приятного аппетита|Вы");
                             DialogueSystem.authorSprite.Add(krips[2]);
                             DialogueSystem.moneyChange(75);
                             break;
                         case 4:
-                            DialogueSystem.lines.Add("Один с сахаром");
-                            DialogueSystem.lines.Add("Хорошо, сейчас будет");
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
+                        DialogueSystem.lines.Add("Один с сахаром|Заказчик");
+                            DialogueSystem.lines.Add("Хорошо, сейчас будет|Вы");
                             DialogueSystem.authorSprite.Add(krips[3]);
                             DialogueSystem.authorSprite.Add(krips[3]);
                             break;
                         case 6:
-                            DialogueSystem.lines.Add("Чёрт, а можно ещё один?");
-                            DialogueSystem.lines.Add("Конечно можно");
+                        GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+
+                        DialogueSystem.lines.Add("Чёрт, а можно ещё один?|Заказчик");
+                            DialogueSystem.lines.Add("Конечно можно|Вы");
                             DialogueSystem.authorSprite.Add(krips[3]);
                             DialogueSystem.authorSprite.Add(krips[3]);
                             break;
                         case 8:
-                            DialogueSystem.lines.Add("КАК ЖЕ ЭТО ВКУСНО, держи!");
+                            GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
+                            DialogueSystem.lines.Add("КАК ЖЕ ЭТО ВКУСНО, держи!|Заказчик");
                             DialogueSystem.authorSprite.Add(krips[3]);
                             DialogueSystem.moneyChange(120);
-                            break;
+                            GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Show();
+                        break;
                         case 10:
-                            DialogueSystem.lines.Add("Друг, дай пожалуйста поесть чего нибудь. Денег ваших заморских нет, но уверяю не обижу по оплате.");
-                            DialogueSystem.authorSprite.Add(krips[3]);
-                            DialogueSystem.moneyChange(120);
+                            DialogueSystem.lines.Add("Друг, дай пожалуйста поесть чего нибудь. Денег ваших заморских нет, но уверяю не обижу по оплате.|Бедуин");
+                            DialogueSystem.authorSprite.Add(charachters[2]);
+                            break;
+                        case 12:
+                            DialogueSystem.lines.Add("Здравствуйте, сэр! Надеюсь вы готовы отдать мне свои деньги");
+                            DialogueSystem.authorSprite.Add(charachters[1]);
+                            DialogueSystem.moneyChange(100, false);
                             break;
                 }
                 break;

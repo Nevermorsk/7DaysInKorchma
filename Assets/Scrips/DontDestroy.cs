@@ -9,6 +9,11 @@ public class DontDestroy : MonoBehaviour
     public static int money;
     public static int day;
 
+    public static Dictionary<string, bool> definitions = new Dictionary<string, bool>
+    {
+        { "day2", false }
+    };
+
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
         { "apples", false },
         { "sgushenka", false },

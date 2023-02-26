@@ -5,20 +5,26 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using System.Timers;
+using System.Data;
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI nameField;
+
+    public static bool definitionHidden = true;
     public static bool canNextDay;
     public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
+
     [SerializeField] float TextSpeed;
 
     private static AudioSource addMoney;
     [SerializeField] private GameObject SceneSwitcher;
-    [SerializeField] private TextMeshProUGUI nameField;
-    [SerializeField] private Sprite[] krips;
-    [SerializeField] private Sprite[] charachters;
+    public Sprite[] krips;
+    public Sprite[] charachters;
+    [SerializeField] private GameObject AcceptBtn;
+    [SerializeField] private GameObject DeclineBtn;
 
     private int index;
 
@@ -69,7 +75,6 @@ public class DialogueSystem : MonoBehaviour
                     text.text = lines[index].Split("|")[0];
                 }
             }
-        
     }
 
     public void StartDialogue()
@@ -80,8 +85,6 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        Debug.Log(index);
-        Debug.Log(lines.Count);
         GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = authorSprite[index];
         string[] splitted = lines[index].Split("|");
         nameField.text = splitted[1];
@@ -104,5 +107,17 @@ public class DialogueSystem : MonoBehaviour
             gameObject.SetActive(false);
             SceneSwitcher.SetActive(true);
         }
+    }
+
+    public void Hide()
+    {
+        AcceptBtn.SetActive(false);
+        DeclineBtn.SetActive(false);
+    }
+
+    public void Show()
+    {
+        AcceptBtn.SetActive(false);
+        DeclineBtn.SetActive(false);
     }
 }
