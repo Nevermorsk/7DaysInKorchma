@@ -18,6 +18,9 @@ TagManager:
   - resetBtn
   - dayclip
   - dialog
+  - accept
+  - decline
+  - indicator
   layers:
   - Default
   - TransparentFX
