@@ -5,7 +5,7 @@ public class pauseScript : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject pauseSettingsUI;
-    private bool isPaused = false;
+    public static bool isPaused = false;
 
     private void Awake()
     {

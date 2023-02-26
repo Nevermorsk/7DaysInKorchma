@@ -135,10 +135,14 @@ public class Dialogues : MonoBehaviour
                         DialogueSystem.lines.Add("В случае вашего отказа, Король скинет вас в яму без дна.|Налоговик");
                         DialogueSystem.lines.Add("Ну куда я денусь, принимаю твою сделку.|Вы");
                         DialogueSystem.lines.Add("С вами не очень приятно иметь дело, но рад что мы пришли к пониманию|Налоговик");
+                        DialogueSystem.lines.Add("Слышал, что к вам сам Король заходил. Могу ли предложить вам парочку улучшений для вашего ресторана? Любые сковородки, и в любых количествах, продукты, которые думаю тебе завтра понадобятся, ценой не обижу.|Продавец");
+                        DialogueSystem.lines.Add("Ну показывай|Вы");
                         for (int i = 0; i < 21; i++)
                         {
                             DialogueSystem.authorSprite.Add(charachters[1]);
                         }
+                        DialogueSystem.authorSprite.Add(charachters[3]);
+                        DialogueSystem.authorSprite.Add(charachters[3]);
                         DialogueSystem.canNextDay = true;
                         break;
                 }
