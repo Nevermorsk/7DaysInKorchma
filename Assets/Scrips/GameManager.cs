@@ -6,14 +6,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] vino;
     [SerializeField] private GameObject SceneSwitcher;
 
-    private GameObject Order;
     private GameObject FryingPan;
 
     private bool hidden;
 
     private void Awake()
     {
-        int counter = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter;
+        int counter = DontDestroy.counter;
 
         switch (counter)
         {
@@ -36,7 +35,6 @@ public class GameManager : MonoBehaviour
     {
         if (!hidden)
         {
-            Order = GameObject.FindWithTag("Order");
             FryingPan = GameObject.FindWithTag("FryingPan");
         }
 

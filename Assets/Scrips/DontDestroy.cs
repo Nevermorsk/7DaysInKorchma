@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public int counter;
-    public int money;
+    public static int counter;
+    public static int money;
+    private static TextMeshProUGUI text;
 
     void Start()
     {
@@ -17,5 +20,11 @@ public class DontDestroy : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+        text = GameObject.FindGameObjectWithTag("money").GetComponent<TextMeshProUGUI>();
+    }
+    
+    public void Update()
+    {
+        text.text = money + "ð";
     }
 }
