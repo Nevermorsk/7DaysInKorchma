@@ -88,6 +88,7 @@ public class DialogueSystem : MonoBehaviour
         GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = authorSprite[index];
         string[] splitted = lines[index].Split("|");
         nameField.text = splitted[1];
+
         foreach (char c in splitted[0].ToCharArray())
             {
                 text.text += c;

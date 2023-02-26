@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public static int counter = 14;
+    public static int counter;
     public static int money;
     public static int day;
 
