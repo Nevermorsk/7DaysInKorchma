@@ -14,6 +14,8 @@ TagManager:
   - music
   - pause
   - money
+  - ingredients
+  - resetBtn
   - dayclip
   layers:
   - Default

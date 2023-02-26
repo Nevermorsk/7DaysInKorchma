@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] ingridients;
+    [SerializeField] private Dictionary<string, GameObject> ingridients;
     [SerializeField] private GameObject[] vino;
     [SerializeField] private GameObject SceneSwitcher;
 
@@ -23,10 +24,17 @@ public class GameManager : MonoBehaviour
             FryingPan = GameObject.FindWithTag("FryingPan");
         }
 
-        for (int i = 0; i < 5; i++)
+        foreach (var pair in DontDestroy.byedItems)
+        {
+            Debug.Log(pair);
+            GameObject.Find(pair.Key).SetActive(pair.Value);
+        }
+
+
+/*        for (int i = 0; i < 6; i++)
         {
             ingridients[i].SetActive(false);
-        }
+        }*/
 
         for (int i = 0; i < 3; i++)
         {
