@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
     public static int counter;
     public static int money;
+    public static int day = 2;
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
-    { "apples", false },
-    { "sgushenka", false },
-    { "salomon", false },
-    { "nutella", false },
-    { "starberry", false },
-    { "sugar", true }
+        { "apples", false },
+        { "sgushenka", false },
+        { "salomon", false },
+        { "nutella", false },
+        { "starberry", true },
+        { "sugar", true },
+        { "upgrade", false }
 };
     private static TextMeshProUGUI text;
 

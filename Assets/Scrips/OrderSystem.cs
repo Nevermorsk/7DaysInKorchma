@@ -16,7 +16,7 @@ public class OrderSystem : MonoBehaviour
 
     private GameObject[] childs = new GameObject[3];
 
-    public string receipt;
+    public static string receipt;
 
     [HideInInspector] public bool timerDone = false;
 
