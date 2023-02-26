@@ -13,6 +13,7 @@ public class ColorCheck : MonoBehaviour
     public Sprite pancake;
     public Sprite cookedPancake;
     public Sprite cap;
+    public GameObject resetBtn;
     [HideInInspector] public bool pancakeMakeFirst = false;
     [HideInInspector] public bool pancakeMakeFinal = false;
     [HideInInspector] public bool done = false;
@@ -53,7 +54,22 @@ public class ColorCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         spriteRenderer.sprite = cookedPancake;
-        done= true;
+        if (OrderSystem.receipt == ingredientsScript.addedIngredient)
+        {
+            done = true;
+        } else
+        {
+            resetBtn.SetActive(true);
+        }
+    }
+    public void resetClc()
+    {
+        spriteRenderer.sprite = circle;
+        ingredientsScript.addedIngredient = null;
+        pancakeMakeFirst = false;
+        pancakeMakeFinal = false;
+        done = false;
+        GameObject.FindGameObjectWithTag("resetBtn").SetActive(false);
     }
     public bool CheckColor(Color targetColor)
     {

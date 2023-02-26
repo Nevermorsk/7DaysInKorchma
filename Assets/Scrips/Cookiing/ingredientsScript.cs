@@ -11,7 +11,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("apples");
-            addedIngredient = "apples";
+            addedIngredient = "сахар";
         }
     }    
     public void nutella()
@@ -19,7 +19,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("nutella");
-            addedIngredient = "apples";
+            addedIngredient = "паста";
         }
     }    
     public void sgushenka()
@@ -27,7 +27,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("sgushenka");
-            addedIngredient = "sgushenka";
+            addedIngredient = "сгущенка";
         }
     }    
     public void starberry()
@@ -35,7 +35,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("starberry");
-            addedIngredient = "starberry";
+            addedIngredient = "клубника";
         }
     }   
     public void salomon()
@@ -43,7 +43,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("salomon");
-            addedIngredient = "salomon";
+            addedIngredient = "сёмга";
         }
     }    
     public void sugar()
@@ -51,7 +51,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("sugar");
-            addedIngredient = "sugar";
+            addedIngredient = "сахар";
         }
     }
 

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
@@ -16,12 +15,13 @@ public class DontDestroy : MonoBehaviour
     };
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
-    { "apples", false },
-    { "sgushenka", false },
-    { "salomon", false },
-    { "nutella", false },
-    { "starberry", false },
-    { "sugar", true }
+        { "apples", false },
+        { "sgushenka", false },
+        { "salomon", false },
+        { "nutella", false },
+        { "starberry", true },
+        { "sugar", true },
+        { "upgrade", false }
 };
     private static TextMeshProUGUI text;
 
@@ -40,6 +40,6 @@ public class DontDestroy : MonoBehaviour
     
     public void Update()
     {
-        text.text = money + "ð";
+        text.text = money + "ï¿½";
     }
 }

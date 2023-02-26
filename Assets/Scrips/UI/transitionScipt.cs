@@ -8,7 +8,7 @@ public class transitionScipt : MonoBehaviour
 {
     public static int dayNumber;
     public static string sceneName;
-    public VideoPlayer vid;
+    public VideoPlayer videoPlayer;
 
     public static void LoadScene(string toSceneName, int toDayNumber)
     {
@@ -18,10 +18,10 @@ public class transitionScipt : MonoBehaviour
     }
 
     private void Start() {
-        VideoClip clip = Resources.Load<VideoClip>($"video/day{dayNumber}.mp4") as VideoClip;
-        vid.clip = clip;
-        vid.Play();
-        vid.loopPointReached += CheckOver;
+        videoPlayer.Stop();
+        videoPlayer.url = $"file://Assets/Resources/video/day{dayNumber}.mp4";
+        videoPlayer.Play();
+        videoPlayer.loopPointReached += CheckOver;
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
