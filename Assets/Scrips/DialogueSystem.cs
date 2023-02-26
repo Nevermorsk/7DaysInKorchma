@@ -13,6 +13,8 @@ public class DialogueSystem : MonoBehaviour
     public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
     [SerializeField] float TextSpeed;
+
+    private static AudioSource addMoney;
     [SerializeField] private GameObject SceneSwitcher;
     [SerializeField] private TextMeshProUGUI nameField;
     [SerializeField] private Sprite[] krips;
@@ -22,6 +24,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
+        addMoney = GetComponent<AudioSource>();
         SceneSwitcher.SetActive(false);
 
         lines.Clear();
@@ -42,6 +45,7 @@ public class DialogueSystem : MonoBehaviour
         }
         else if (add)
         {
+            addMoney.Play();
             DontDestroy.money += money;
             Debug.Log($"{money} {DontDestroy.money}");
         }
@@ -53,7 +57,7 @@ public class DialogueSystem : MonoBehaviour
     }
     private void Update()
     {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0) && !pauseScript.isPaused)
             {
                 if (text.text == lines[index].Split("|")[0])
                 {

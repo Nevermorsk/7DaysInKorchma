@@ -14,6 +14,7 @@ public class ColorCheck : MonoBehaviour
     public Sprite cookedPancake;
     public Sprite cap;
     public GameObject resetBtn;
+    public AudioSource cookingSound;
     [HideInInspector] public bool pancakeMakeFirst = false;
     [HideInInspector] public bool pancakeMakeFinal = false;
     [HideInInspector] public bool done = false;
@@ -31,6 +32,7 @@ public class ColorCheck : MonoBehaviour
         if (!pancakeMakeFirst && CheckColor(targetColor)) {
             spriteRenderer.sprite = cap;
             pancakeMakeFirst = true;
+            cookingSound.Play();
             StartCoroutine(Delay1(cookingTime));
             
         }
@@ -39,6 +41,7 @@ public class ColorCheck : MonoBehaviour
             spriteRenderer.sprite = cap;
             pancakeMakeFinal = true;
             ingredientsScript.canAdd = false;
+            cookingSound.Play();
             StartCoroutine(Delay2(secondCookingTime));
           
         }
@@ -49,11 +52,13 @@ public class ColorCheck : MonoBehaviour
         yield return new WaitForSeconds(time);
         spriteRenderer.sprite = pancake;
         ingredientsScript.canAdd = true;
+        cookingSound.Stop();
     }    
     IEnumerator Delay2(float time)
     {
         yield return new WaitForSeconds(time);
         spriteRenderer.sprite = cookedPancake;
+        cookingSound.Stop();
         if (OrderSystem.receipt == ingredientsScript.addedIngredient)
         {
             done = true;

@@ -9,31 +9,31 @@ public class buyingScript : MonoBehaviour
     [SerializeField] private Button sgushenka;
     [SerializeField] private Button upgrade;
 
+    [SerializeField] private AudioSource buySound;
+
     [SerializeField] private Image background;
     [SerializeField] private Sprite[] backgrounds = new Sprite[7];
     
     void Start()
     {
-        DontDestroy.money = 400;
-        background.sprite = backgrounds[DontDestroy.day - 1];
+        background.sprite = backgrounds[DontDestroy.day];
         switch (DontDestroy.day)
         {
-            case 1:
+            case 0:
                 apple.gameObject.SetActive(true);
                 sgushenka.gameObject.SetActive(false);
                 upgrade.gameObject.SetActive(false);
                 break;           
-            case 2:
+            case 1:
                 apple.gameObject.SetActive(true);
                 sgushenka.gameObject.SetActive(true);
                 upgrade.gameObject.SetActive(true);
                 break;
-
-
         }
     }
 
     public void buyAppleClc() {
+        buySound.Play();
         if (DontDestroy.money >= 40)
         {
             DontDestroy.money -= 40;
@@ -43,6 +43,7 @@ public class buyingScript : MonoBehaviour
         
     }
     public void buySgushenkaClc() {
+        buySound.Play();
         if (DontDestroy.money >= 60)
         {
             DontDestroy.money -= 60;
@@ -52,6 +53,7 @@ public class buyingScript : MonoBehaviour
 
     }
     public void buyUpgradeClc() {
+        buySound.Play();
         Debug.Log(DontDestroy.money);
         if (DontDestroy.money >= 300)
         {

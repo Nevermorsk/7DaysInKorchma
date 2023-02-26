@@ -10,6 +10,7 @@ public class transitionScipt : MonoBehaviour
     public static string sceneName;
     public VideoPlayer videoPlayer;
 
+    public AudioSource[] audios = new AudioSource[7];
     public static void LoadScene(string toSceneName, int toDayNumber)
     {
         dayNumber = toDayNumber;
@@ -20,6 +21,7 @@ public class transitionScipt : MonoBehaviour
     private void Start() {
         videoPlayer.Stop();
         videoPlayer.url = $"file://Assets/Resources/video/day{dayNumber}.mp4";
+        videoPlayer.SetTargetAudioSource(0, audios[dayNumber]);
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
     }

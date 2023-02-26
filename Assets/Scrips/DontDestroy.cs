@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public static int counter;
+    public static int counter = 14;
     public static int money;
     public static int day;
 
@@ -14,7 +14,7 @@ public class DontDestroy : MonoBehaviour
         { "sgushenka", false },
         { "salomon", false },
         { "nutella", false },
-        { "starberry", true },
+        { "starberry", false },
         { "sugar", true },
         { "upgrade", false }
 };
@@ -35,6 +35,6 @@ public class DontDestroy : MonoBehaviour
     
     public void Update()
     {
-        text.text = money + "�";
+        text.text = money.ToString();
     }
 }

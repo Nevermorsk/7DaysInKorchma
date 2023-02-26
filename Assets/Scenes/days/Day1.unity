@@ -551,7 +551,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f601e30f3e9956419263eb55610cefc, type: 3}
   - {fileID: 21300000, guid: 0bfafbaefa34f7b4b923863e6923ac23, type: 3}
   - {fileID: 21300000, guid: cfb18537f89f3b44e8944ddb997e8f45, type: 3}
-  delay: 10
+  delay: 15
   icons:
   - {fileID: 21300000, guid: 90253bf7d62e6a448a8d4f2491f340be, type: 3}
   - {fileID: 21300000, guid: 7ed5a39eb8b2c0247b1d74ac02521e0a, type: 3}
@@ -956,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: Window 1
+  trading: {fileID: 0}
 --- !u!1 &749039934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,9 +2126,138 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309123631}
+  - {fileID: 1230579015}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230579014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230579015}
+  - component: {fileID: 1230579016}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230579015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230579014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1216458434}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1230579016
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230579014}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -481587060114618365, guid: 0ce47ad64a8d2b940bf64324544d48b1, type: 2}
+  m_audioClip: {fileID: 8300000, guid: e33422169211b384b8d451ace39e5626, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1259805079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,14 +2521,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 21300000, guid: 962b0559b739a664d9d5818b96cb3707, type: 3}
-  cookingTime: 1
-  secondCookingTime: 1
+  cookingTime: 8
+  secondCookingTime: 2
   colorThreshold: 0.09
   targetColor: {r: 0.95686275, g: 0.6431373, b: 0.3764706, a: 1}
   pancake: {fileID: 21300000, guid: bc3e37ef3b5a4264ba2b516ec4a12cef, type: 3}
   cookedPancake: {fileID: 21300000, guid: a741f6c9bb52bbf4fb835125f8d44798, type: 3}
   cap: {fileID: 21300000, guid: 4732b3eab46768346b2c4a1d3ee497cb, type: 3}
   resetBtn: {fileID: 1717085405}
+  cookingSound: {fileID: 1230579016}
   pancakeMakeFirst: 0
   pancakeMakeFinal: 0
   done: 0
