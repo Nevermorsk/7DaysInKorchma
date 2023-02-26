@@ -10,6 +10,13 @@ public class SceneSwitcher : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (DialogueSystem.canNextDay)
+        {
+            DontDestroy.day++;
+            DontDestroy.counter = 0;
+            transitionScipt.LoadScene($"Window 1", DontDestroy.day);
+            return;
+        }
         SceneManager.LoadScene(_sceneName);
         DontDestroy.counter++;
     }

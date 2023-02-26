@@ -9,50 +9,12 @@ public class GameManager : MonoBehaviour
 
     private GameObject FryingPan;
 
-    private bool hidden;
+    public static bool hidden;
 
     private void Awake()
     {
         int counter = DontDestroy.counter;
-/*        GameObject ParentIngred = GameObject.FindGameObjectWithTag("ingredients");
-        ingridients = new Dictionary<string, GameObject> {
-            { "apples", GameObject.Find("apples") },
-            { "sgushenka", GameObject.Find("sgushenka") },
-            { "salomon", GameObject.Find("salomon") },
-            { "nutella", GameObject.Find("apples") },
-            { "starberry", GameObject.Find("nutella") },
-            { "sugar", GameObject.Find("sugar") }
-        };*/
-        switch (counter)
-        {
-            case 1:
-                OrderSystem.receipt = "сахар";
-                break;
-            case 3:
-                hidden = true;
-                GameObject.FindWithTag("Order").SetActive(false);
-                GameObject.FindWithTag("FryingPan").SetActive(false);
-                GameObject.FindWithTag("OrderShadow").SetActive(false);
-                break;
-            case 5:
-                OrderSystem.receipt = "сахар";
-                break;
-            case 7:
-                hidden = true;
-                GameObject.FindWithTag("Order").SetActive(false);
-                GameObject.FindWithTag("FryingPan").SetActive(false);
-                GameObject.FindWithTag("OrderShadow").SetActive(false);
-                break;
-            case 9:
-                OrderSystem.receipt = "сахар";
-                break;
-            case 11:
-                OrderSystem.receipt = "сахар";
-                break;
-            case 13:
-                OrderSystem.receipt = "сахар";
-                break;
-        }
+        Order.DefineOrder(DontDestroy.day, DontDestroy.counter);
     }
 
     private void Start()
@@ -93,7 +55,7 @@ public class GameManager : MonoBehaviour
 
    void Update()
     {
-        if (!hidden) { 
+        if (!hidden) {
             if (FryingPan.GetComponent<ColorCheck>().done)
             {
                 SceneSwitcher.SetActive(true);

@@ -7,7 +7,7 @@ public class DontDestroy : MonoBehaviour
 {
     public static int counter;
     public static int money;
-    public static int day = 2;
+    public static int day;
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
         { "apples", false },
@@ -35,6 +35,6 @@ public class DontDestroy : MonoBehaviour
     
     public void Update()
     {
-        text.text = money + "ð";
+        text.text = money + "ï¿½";
     }
 }
