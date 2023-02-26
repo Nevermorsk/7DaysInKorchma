@@ -14,6 +14,7 @@ TagManager:
   - music
   - pause
   - money
+  - dayclip
   layers:
   - Default
   - TransparentFX

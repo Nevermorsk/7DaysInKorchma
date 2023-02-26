@@ -8,42 +8,12 @@ public class GameManager : MonoBehaviour
 
     private GameObject FryingPan;
 
-    private bool hidden;
+    public static bool hidden;
 
     private void Awake()
     {
         int counter = DontDestroy.counter;
-
-        switch (counter)
-        {
-            case 1:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
-                break;
-            case 3:
-                hidden = true;
-                GameObject.FindWithTag("Order").SetActive(false);
-                GameObject.FindWithTag("FryingPan").SetActive(false);
-                GameObject.FindWithTag("OrderShadow").SetActive(false);
-                break;
-            case 5:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
-                break;
-            case 7:
-                hidden = true;
-                GameObject.FindWithTag("Order").SetActive(false);
-                GameObject.FindWithTag("FryingPan").SetActive(false);
-                GameObject.FindWithTag("OrderShadow").SetActive(false);
-                break;
-            case 9:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
-                break;
-            case 11:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
-                break;
-            case 13:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
-                break;
-        }
+        Order.DefineOrder(DontDestroy.day, DontDestroy.counter);
     }
 
     private void Start()
@@ -77,7 +47,7 @@ public class GameManager : MonoBehaviour
 
    void Update()
     {
-        if (!hidden) { 
+        if (!hidden) {
             if (FryingPan.GetComponent<ColorCheck>().done)
             {
                 SceneSwitcher.SetActive(true);
