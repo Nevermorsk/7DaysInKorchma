@@ -160,8 +160,10 @@ public class Dialogues : MonoBehaviour
                             break;
                         case 10:
                             DialogueSystem.lines.Add("ƒруг, дай пожалуйста поесть чего нибудь. ƒенег ваших заморских нет, но увер€ю не обижу по оплате.");
-                            DialogueSystem.authorSprite.Add(krips[3]);
-                            DialogueSystem.moneyChange(120);
+                            DialogueSystem.authorSprite.Add(charachters[2]);
+                            DialogueSystem.Show(2);   
+                            break;
+                        case 11:
                             break;
                 }
                 break;

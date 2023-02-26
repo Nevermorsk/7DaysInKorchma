@@ -9,12 +9,15 @@ using System.Timers;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI nameField;
+
+    public static bool definitionHidden = true;
     public static bool canNextDay;
     public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
+
     [SerializeField] float TextSpeed;
     [SerializeField] private GameObject SceneSwitcher;
-    [SerializeField] private TextMeshProUGUI nameField;
     [SerializeField] private Sprite[] krips;
     [SerializeField] private Sprite[] charachters;
 
@@ -22,6 +25,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start()
     {
+        Hide();
         SceneSwitcher.SetActive(false);
 
         lines.Clear();
@@ -65,7 +69,6 @@ public class DialogueSystem : MonoBehaviour
                     text.text = lines[index].Split("|")[0];
                 }
             }
-        
     }
 
     public void StartDialogue()
@@ -76,8 +79,6 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        Debug.Log(index);
-        Debug.Log(lines.Count);
         GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = authorSprite[index];
         string[] splitted = lines[index].Split("|");
         nameField.text = splitted[1];
@@ -100,5 +101,17 @@ public class DialogueSystem : MonoBehaviour
             gameObject.SetActive(false);
             SceneSwitcher.SetActive(true);
         }
+    }
+
+    public static void Hide()
+    {
+        GameObject.FindWithTag("accept").SetActive(false);
+        GameObject.FindWithTag("decline").SetActive(false);
+    }
+
+    public static void Show(int day)
+    {
+        GameObject.FindWithTag("accept").SetActive(true);
+        GameObject.FindWithTag("decline").SetActive(true);
     }
 }
