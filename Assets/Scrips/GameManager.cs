@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         switch (counter)
         {
             case 1:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "�����";
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
                 break;
             case 3:
                 hidden = true;
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
                 GameObject.FindWithTag("OrderShadow").SetActive(false);
                 break;
             case 5:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "�����";
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
                 break;
             case 7:
                 hidden = true;
@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
                 GameObject.FindWithTag("OrderShadow").SetActive(false);
                 break;
             case 9:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "�����";
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
                 break;
             case 11:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "�����";
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
                 break;
             case 13:
-                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "�����";
+                GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
                 break;
         }
     }
