@@ -13,6 +13,7 @@ TagManager:
   - DontDestroy
   - music
   - pause
+  - money
   layers:
   - Default
   - TransparentFX

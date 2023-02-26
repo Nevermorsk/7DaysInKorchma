@@ -11,6 +11,6 @@ public class SceneSwitcher : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         SceneManager.LoadScene(_sceneName);
-        GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter++;
+        DontDestroy.counter++;
     }
 }

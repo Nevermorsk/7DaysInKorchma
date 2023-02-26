@@ -15,16 +15,13 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private Sprite[] krips;
 
     private int index;
-    private int counter;
 
     private void Start()
     {
-        counter = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().counter;
-
         SceneSwitcher.SetActive(false);
         GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = krips[Random.Range(0, krips.Length)];
 
-        switch (counter)
+        switch (DontDestroy.counter)
         {
             case 0:
                 lines[0] = "Здравствуйте, можно блин с сахаром?";
@@ -37,7 +34,7 @@ public class DialogueSystem : MonoBehaviour
                 lines[1] = "Всего доброго.";
                 authors[0] = "Заказчик";
                 authors[1] = "Вы";
-                GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money += 60;
+                moneyChange(60);
                 break;
             case 4:
                 lines[0] = "Здравствуйте, блины остались?";
@@ -50,7 +47,7 @@ public class DialogueSystem : MonoBehaviour
                 lines[1] = "Огромное спасибо, досвидание.";
                 authors[0] = "Вы";
                 authors[1] = "Заказчик";
-                GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>().money += 60;
+                moneyChange(60);
                 break;
         }
 
@@ -60,7 +57,24 @@ public class DialogueSystem : MonoBehaviour
         nameField.text = authors[index];
         StartDialogue();
     }
-
+    private void moneyChange(int money, bool add = true)
+    {
+        Debug.Log($"{money} {DontDestroy.money}");
+        if (!add && DontDestroy.money >= money)
+        {
+            DontDestroy.money -= money;
+        }
+        else if (add)
+        {
+            DontDestroy.money += money;
+            Debug.Log($"{money} {DontDestroy.money}");
+        }
+        else 
+        {
+            Debug.Log("Нету денег, лох");
+        }
+       
+    }
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
