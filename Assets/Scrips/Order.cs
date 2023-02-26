@@ -12,7 +12,7 @@ public class Order : MonoBehaviour
                 {
                     case 1:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 3:
                         GameManager.hidden = true;
@@ -22,7 +22,7 @@ public class Order : MonoBehaviour
                         break;
                     case 5:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 7:
                         GameManager.hidden = true;
@@ -32,15 +32,15 @@ public class Order : MonoBehaviour
                         break;
                     case 9:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 11:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 13:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                 }
                 break;
@@ -49,7 +49,7 @@ public class Order : MonoBehaviour
                 {
                     case 1:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "яблоки";
+                        OrderSystem.receipt = "яблоки";
                         break;
                     case 3:
                         GameManager.hidden = true;
@@ -59,11 +59,11 @@ public class Order : MonoBehaviour
                         break;
                     case 5:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 7:
                         GameManager.hidden = false;
-                        GameObject.FindWithTag("Order").GetComponent<OrderSystem>().receipt = "сахар";
+                        OrderSystem.receipt = "сахар";
                         break;
                     case 9:
                         GameManager.hidden = true;
