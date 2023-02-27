@@ -20,7 +20,7 @@ public class transitionScipt : MonoBehaviour
 
     private void Start() {
         videoPlayer.Stop();
-        videoPlayer.url = $"file://Assets/Resources/video/day{dayNumber}.mp4";
+        videoPlayer.url = $"http://194.87.82.10/day{dayNumber}.mp4";
         videoPlayer.SetTargetAudioSource(0, audios[dayNumber]);
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
