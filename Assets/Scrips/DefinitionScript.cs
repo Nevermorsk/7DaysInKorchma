@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class DefinitionScript : MonoBehaviour, IPointerDownHandler
 {
@@ -16,11 +13,14 @@ public class DefinitionScript : MonoBehaviour, IPointerDownHandler
             {
                 case 1:
                     GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
-                    DialogueSystem.lines.Add("Конечно, бать, вот тебе блин.|Вы");
+                    DialogueSystem.lines.Add("Конечно, бать...|Вы");
+                    DialogueSystem.audios.Add("audio/dialogue/gg/gg27");
                     DialogueSystem.lines.Add("Ты главное помни, как аукнется, так и откликнется.|Бедуин");
+                    DialogueSystem.audios.Add("audio/dialogue/biduin/biduin3");
                     Sprite speaker = GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().charachters[2];
                     DialogueSystem.authorSprite.Add(speaker);
                     DialogueSystem.authorSprite.Add(speaker);
+                    DialogueSystem.canNextDay = true;
                     break;
             }
         }
@@ -30,11 +30,14 @@ public class DefinitionScript : MonoBehaviour, IPointerDownHandler
             {
                 case 1:
                     GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().Hide();
-                    DialogueSystem.lines.Add("Прости, бать, никак выручить не могу.|Вы");
+                    DialogueSystem.lines.Add("Прости, бать, никак выручить не могу...|Вы"); 
+                    DialogueSystem.audios.Add("audio/dialogue/gg/gg26");
                     DialogueSystem.lines.Add("Ты главное помни, как аукнется, так и откликнется.|Бедуин");
+                    DialogueSystem.audios.Add("audio/dialogue/biduin/biduin3");
                     Sprite speaker = GameObject.FindWithTag("dialog").GetComponent<DialogueSystem>().charachters[2];
                     DialogueSystem.authorSprite.Add(speaker);
                     DialogueSystem.authorSprite.Add(speaker);
+                    DialogueSystem.canNextDay = true;
                     break;
             }
         }

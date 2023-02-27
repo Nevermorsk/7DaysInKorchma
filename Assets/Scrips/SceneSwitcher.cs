@@ -15,7 +15,12 @@ public class SceneSwitcher : MonoBehaviour, IPointerDownHandler
         {
             DontDestroy.day++;
             DontDestroy.counter = 0;
-            transitionScipt.LoadScene($"Window 1", DontDestroy.day+1);
+            if (DontDestroy.day == 2) {
+                SceneManager.LoadScene("End");
+            }
+            else { 
+                transitionScipt.LoadScene($"Window 1", DontDestroy.day+1);
+            }
             return;
         }
         SceneManager.LoadScene(_sceneName);
@@ -23,7 +28,7 @@ public class SceneSwitcher : MonoBehaviour, IPointerDownHandler
     }
     private void Update()
     {
-        if (DialogueSystem.canNextDay && firstTraiding) { 
+        if (DialogueSystem.canNextDay && firstTraiding && DontDestroy.day != 1) { 
             firstTraiding = false;
             trading.SetActive(true);
         }

@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartVideo.unity
+    guid: e24e7283c84284b4da3898ddf54be2e4
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/old/Game.unity
-    guid: e7ff1ad29d24a254592503205b029923
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 63ac40a4c90073047a177d08d47bd8b4
@@ -21,15 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/days/Day1.unity
     guid: 3f3fc1628cedc3542a79bbc75a859ffa
   - enabled: 1
-    path: Assets/Scenes/Transition/scene1.unity
-    guid: 7f22a35dd7b895946b7399df04624727
-  - enabled: 1
-    path: Assets/Scenes/Transition/scene2.unity
-    guid: d116303f82390634d868cac946e405d0
-  - enabled: 1
     path: Assets/Scenes/Transition/LoadScene.unity
     guid: 0c24e5df502c90c4ba9069359eb68923
   - enabled: 1
-    path: Assets/Scenes/Window 2.unity
-    guid: b7d9fbf473a441c4b93dc8419a322fce
+    path: Assets/Scenes/End.unity
+    guid: 4804bbf7c02dabc4c80d6548715a6d77
   m_configObjects: {}
