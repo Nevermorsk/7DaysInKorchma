@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
-using UnityEngine.SceneManagement;
-using System.Timers;
-using System.Data;
+using UnityEngine.Audio;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -17,7 +14,7 @@ public class DialogueSystem : MonoBehaviour
 
     public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
-    public static List<AudioSource> audio = new List<AudioSource>();
+    public static List<string> audios = new List<string>();
 
     [SerializeField] float TextSpeed;
 
@@ -28,15 +25,22 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject AcceptBtn;
     [SerializeField] private GameObject DeclineBtn;
 
+    private AudioSource audioSource;
     private int index;
 
     private void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        AudioMixer audioMixer = Resources.Load<AudioMixer>("audio/mixer/main");
+        AudioMixerGroup[] audioMixGroup = audioMixer.FindMatchingGroups("Master");
+        audioSource.outputAudioMixerGroup = audioMixGroup[3];
+
         addMoney = GetComponent<AudioSource>();
         SceneSwitcher.SetActive(false);
 
         lines.Clear();
         authorSprite.Clear();
+        audios.Clear();
 
         Dialogues.DefineDialogue(DontDestroy.day, DontDestroy.counter, krips, charachters);
 
@@ -85,7 +89,16 @@ public class DialogueSystem : MonoBehaviour
         GameObject.FindWithTag("Speaker").GetComponent<SpriteRenderer>().sprite = authorSprite[index];
         string[] splitted = lines[index].Split("|");
         nameField.text = splitted[1];
-        // воспроизвести аудио
+        Debug.Log(audios.Count);
+        if (audios.Count > 0)
+        {
+            Debug.Log($"{index} {audios[index]}");
+            audioSource.playOnAwake = false;
+            audioSource.Stop();
+            audioSource.clip = Resources.Load(audios[index]) as AudioClip;
+            audioSource.Play();
+        }
+
         foreach (char c in splitted[0].ToCharArray())
             {
                 text.text += c;

@@ -20,7 +20,8 @@ public class transitionScipt : MonoBehaviour
 
     private void Start() {
         videoPlayer.Stop();
-        videoPlayer.url = $"file://Assets/Resources/video/day{dayNumber}.mp4";
+        videoPlayer.url = $"https://niceefoxy.ml/day{dayNumber}.mp4";
+        videoPlayer.Prepare();
         videoPlayer.SetTargetAudioSource(0, audios[dayNumber]);
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
