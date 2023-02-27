@@ -1055,7 +1055,7 @@ VideoPlayer:
   - {fileID: 75813317}
   m_DirectAudioVolumes:
   - 1
-  m_Url: file://Assets/Resources/video/day1.mp4
+  m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
