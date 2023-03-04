@@ -1053,6 +1053,7 @@ MonoBehaviour:
   nameField: {fileID: 2058384579}
   TextSpeed: 0.05
   SceneSwitcher: {fileID: 1250973573}
+  Dialogue: {fileID: 2512065582999236307}
   krips:
   - {fileID: 21300000, guid: a10ae08566c149c4cbde839309eb3af0, type: 3}
   - {fileID: 21300000, guid: d751233557d2ecf48800d285ee2c77d0, type: 3}
@@ -2944,7 +2945,7 @@ GameObject:
   - component: {fileID: 1250973575}
   m_Layer: 5
   m_Name: SceneSwitcher
-  m_TagString: Untagged
+  m_TagString: SceneSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2981,7 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54eb4af68aec4ea4a931580205dfe7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: Day1
+  _sceneName: Day 1
   trading: {fileID: 1231895146}
 --- !u!114 &1250973576
 MonoBehaviour:
@@ -4693,8 +4694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -20}
-  m_SizeDelta: {x: 660, y: 80}
+  m_AnchoredPosition: {x: 3, y: -25}
+  m_SizeDelta: {x: 650, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2512065584187504200
 GameObject:
@@ -4769,8 +4770,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

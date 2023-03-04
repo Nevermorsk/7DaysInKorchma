@@ -21,6 +21,7 @@ public class DialogueSystem : MonoBehaviour
 
     private static AudioSource addMoney;
     [SerializeField] private GameObject SceneSwitcher;
+    [SerializeField] private GameObject Dialogue;
     public Sprite[] krips;
     public Sprite[] charachters;
     [SerializeField] private GameObject AcceptBtn;
@@ -116,7 +117,7 @@ public class DialogueSystem : MonoBehaviour
             StartCoroutine(TypeLine());
         } else
         {
-            gameObject.SetActive(false);
+            Dialogue.SetActive(false);
             SceneSwitcher.SetActive(true);
         }
     }

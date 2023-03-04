@@ -21,6 +21,7 @@ TagManager:
   - accept
   - decline
   - indicator
+  - SceneSwitcher
   layers:
   - Default
   - TransparentFX

@@ -45,7 +45,11 @@ public class DontDestroy : MonoBehaviour
         string SceneName = SceneManager.GetActiveScene().name;
         if (SceneName != "Window 1" && SceneName != "Day 1")
         {
-
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
         }
     }
 }
