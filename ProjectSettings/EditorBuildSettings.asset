@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/days/Window 1.unity
     guid: 100866f14e15af54aa7efdfe4ca3f70c
   - enabled: 1
-    path: Assets/Scenes/days/Day1.unity
+    path: Assets/Scenes/days/Day 1.unity
     guid: 3f3fc1628cedc3542a79bbc75a859ffa
   - enabled: 1
     path: Assets/Scenes/Transition/LoadScene.unity

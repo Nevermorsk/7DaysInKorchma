@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
@@ -38,8 +39,13 @@ public class DontDestroy : MonoBehaviour
 
     }
     
-    public void Update()
+    public void FixedUpdate()
     {
         text.text = money.ToString();
+        string SceneName = SceneManager.GetActiveScene().name;
+        if (SceneName != "Window 1" && SceneName != "Day 1")
+        {
+
+        }
     }
 }
