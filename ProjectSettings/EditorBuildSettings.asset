@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartVideo.unity
+    path: Assets/Scenes/StartEnd/StartVideo.unity
     guid: e24e7283c84284b4da3898ddf54be2e4
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings.unity
     guid: 63ac40a4c90073047a177d08d47bd8b4
   - enabled: 1
-    path: Assets/Scenes/Window 1.unity
+    path: Assets/Scenes/days/Window 1.unity
     guid: 100866f14e15af54aa7efdfe4ca3f70c
   - enabled: 1
     path: Assets/Scenes/days/Day1.unity
@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Transition/LoadScene.unity
     guid: 0c24e5df502c90c4ba9069359eb68923
   - enabled: 1
-    path: Assets/Scenes/End.unity
+    path: Assets/Scenes/StartEnd/End.unity
     guid: 4804bbf7c02dabc4c80d6548715a6d77
   m_configObjects: {}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,8 @@ public class StartScript : MonoBehaviour
     void Start()
     {
         videoPlayer.Stop();
-        videoPlayer.url = $"https://niceefoxy.ml/{videoName}.mp4";
+        videoPlayer.url = Path.Combine(Application.streamingAssetsPath, $"{videoName}.mp4");
+        videoPlayer.Prepare();
         videoPlayer.Prepare();
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
