@@ -91,6 +91,7 @@ public class DialogueSystem : MonoBehaviour
         GameObject.FindWithTag("Speaker").GetComponent<Image>().sprite = authorSprite[index];
         string[] splitted = lines[index].Split("|");
         nameField.text = splitted[1];
+
         Debug.Log(audios.Count);
         if (audios.Count > 0)
         {
