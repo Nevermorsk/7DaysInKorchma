@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DefinitionScript : MonoBehaviour, IPointerDownHandler
+public class DefinitionScript : MonoBehaviour
 {
     [SerializeField] private int type;
-
+/*
     public void OnPointerDown(PointerEventData eventData)
     {
         if (type == 0)
@@ -41,5 +41,5 @@ public class DefinitionScript : MonoBehaviour, IPointerDownHandler
                     break;
             }
         }
-    }
+    }*/
 }

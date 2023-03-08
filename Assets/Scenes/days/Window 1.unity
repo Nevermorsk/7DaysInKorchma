@@ -1049,25 +1049,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1020834d0d1b5438708edd9bbc14ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2512065584187504203}
+  textField: {fileID: 2512065584187504203}
   nameField: {fileID: 2058384579}
   TextSpeed: 0.05
   SceneSwitcher: {fileID: 1250973573}
   Dialogue: {fileID: 2512065582999236307}
-  krips:
-  - {fileID: 21300000, guid: a10ae08566c149c4cbde839309eb3af0, type: 3}
-  - {fileID: 21300000, guid: d751233557d2ecf48800d285ee2c77d0, type: 3}
-  - {fileID: 21300000, guid: 972c57059de96aa4e80ec99543f211de, type: 3}
-  - {fileID: 21300000, guid: 0ffaf163048eba44897f107e116fdf62, type: 3}
-  - {fileID: 21300000, guid: 77a709f34060d774e963956efa4ca1bf, type: 3}
-  - {fileID: 21300000, guid: 04b41ca1380f9e94bbb008898256498f, type: 3}
-  - {fileID: 21300000, guid: de4b00cd3e7a179429eeb4c8ee2216ab, type: 3}
-  - {fileID: 21300000, guid: db9ff7cf3ad2ed74a9d3902b8ec3b090, type: 3}
-  charachters:
-  - {fileID: 21300000, guid: 63a82db0f7ce3a14fa1a1641ec3bebad, type: 3}
-  - {fileID: 21300000, guid: 22f2fa611e1647146a00ef998c24028b, type: 3}
-  - {fileID: 21300000, guid: f4fe4e76775298f46ae1cb30c3b7c979, type: 3}
-  - {fileID: 21300000, guid: f72519308eaa9bd4899f491dbf0e3a8c, type: 3}
   AcceptBtn: {fileID: 28994846}
   DeclineBtn: {fileID: 1577089100}
 --- !u!114 &536716795

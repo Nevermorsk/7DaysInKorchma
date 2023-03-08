@@ -1,30 +1,30 @@
-{
-  "1":{
+[
+  {
     "text": "Здравствуйте, можно блин с сахаром?",
     "author": "Заказчик",
-    "sprite": "дерево",
-    "audio": "",
+    "sprite": "krip1",
+    "audio": "gg/gg5",
     "action": ""
   },
-  "2":{
+  {
     "text": "Будет сделано.",
     "author": "Вы",
-    "sprite": "дерево",
-    "audio": "",
+    "sprite": "krip2",
+    "audio": "gg/gg6",
     "action": ""
   },
-  "3":{
+  {
     "text": "Спасибо, вот деньги.",
     "author": "Заказчик",
-    "sprite": "дерево",
-    "audio": "",
-    "action": ""
+    "sprite": "krip3",
+    "audio": "gg/gg7",
+    "action": "trading"
   },
-  "4":{
+  {
     "text": "Всего доброго.",
     "author": "Вы",
-    "sprite": "дерево",
-    "audio": "",
+    "sprite": "krip4",
+    "audio": "gg/gg8",
     "action": ""
   }
-}
+]

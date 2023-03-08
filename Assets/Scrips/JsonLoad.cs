@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class JsonLoad : MonoBehaviour
 {
-    public void BtnClc(string fileName)
+    public string fileName;
+    private Queue<Replica> dialogues_day1;
+    public void Start()
     {
-        var dialogues_day1 = Replica.LoadJson(fileName);
-        Replica.ShowData(dialogues_day1);
+        dialogues_day1 = Replica.MakeQueue(fileName);
+    }
+    public void BtnClc()
+    {
+        var dial = dialogues_day1.Dequeue();
+        Debug.Log($"{dial.author} - {dial.text} ({dial.sprite}|{dial.audio}|{dial.action})");
     }
 }

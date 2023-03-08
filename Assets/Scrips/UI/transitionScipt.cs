@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
 using System.IO;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class transitionScipt : MonoBehaviour
-{
+{   
     public static int dayNumber;
     public static string sceneName;
+
+    public bool skipScene = false;
     public VideoPlayer videoPlayer;
     public AudioSource backgroundMusic;
 
@@ -40,7 +40,15 @@ public class transitionScipt : MonoBehaviour
         audioSource.Play();
 
         videoPlayer.Play();
-        videoPlayer.loopPointReached += CheckOver;
+        if (skipScene)
+        {
+            backgroundMusic.Play();
+            StartCoroutine(LoadNextScene());
+        }
+        else
+        {
+            videoPlayer.loopPointReached += CheckOver;
+        }
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {

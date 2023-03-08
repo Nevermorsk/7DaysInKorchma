@@ -8,7 +8,7 @@ public class DontDestroy : MonoBehaviour
 {
     public static int counter;
     public static int money;
-    public static int day;
+    public static int day = 1;
 
     public static Dictionary<string, bool> definitions = new Dictionary<string, bool>
     {

@@ -7,28 +7,32 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI nameField;
 
     public static bool definitionHidden = true;
     public static bool canNextDay;
 
-    public static List<string> lines = new List<string>();
+/*    public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
-    public static List<string> audios = new List<string>();
+    public static List<string> audios = new List<string>();*/
 
     [SerializeField] float TextSpeed;
 
     private static AudioSource addMoney;
     [SerializeField] private GameObject SceneSwitcher;
     [SerializeField] private GameObject Dialogue;
-    public Sprite[] krips;
-    public Sprite[] charachters;
+
+/*    public Sprite[] krips;
+    public Sprite[] charachters;*/
+
     [SerializeField] private GameObject AcceptBtn;
     [SerializeField] private GameObject DeclineBtn;
 
     private AudioSource audioSource;
     private int index;
+    private Replica currentDialog;
+    private Queue<Replica> dialogues;
 
     private void Start()
     {
@@ -40,15 +44,19 @@ public class DialogueSystem : MonoBehaviour
         addMoney = GetComponent<AudioSource>();
         SceneSwitcher.SetActive(false);
 
-        lines.Clear();
-        authorSprite.Clear();
-        audios.Clear();
+        dialogues = Replica.MakeQueue($"dialogues_day{DontDestroy.day}");
+        currentDialog = dialogues.Dequeue();
+        /*
+                lines.Clear();
+                authorSprite.Clear();
+                audios.Clear();
 
-        Dialogues.DefineDialogue(DontDestroy.day, DontDestroy.counter, krips, charachters);
+                Dialogues.DefineDialogue(DontDestroy.day, DontDestroy.counter, krips, charachters);
 
-        text.text = string.Empty;
-        nameField.text = lines[index].Split("|")[1];
-        StartDialogue();
+                text.text = string.Empty;
+                nameField.text = lines[index].Split("|")[1];*/
+
+        StartCoroutine(TypeLine()); // старт диалога
     }
     public static void moneyChange(int money, bool add = true)
     {
@@ -71,50 +79,47 @@ public class DialogueSystem : MonoBehaviour
     }
     private void Update()
     {
-            if(Input.GetMouseButtonDown(0) && !pauseScript.isPaused)
+        if(Input.GetMouseButtonDown(0) && !pauseScript.isPaused)
+        {
+            if (textField.text == currentDialog.text)
             {
-                if (text.text == lines[index].Split("|")[0])
-                {
-                    IsNextLine();
-                }
+                IsNextLine();
             }
-    }
-
-    public void StartDialogue()
-    {
-        index = 0;
-        StartCoroutine(TypeLine());
+            else
+            {
+                StopAllCoroutines();
+                textField.text = currentDialog.text;
+            }
+        }
     }
 
     IEnumerator TypeLine()
     {
-        GameObject.FindWithTag("Speaker").GetComponent<Image>().sprite = authorSprite[index];
-        string[] splitted = lines[index].Split("|");
-        nameField.text = splitted[1];
+        GameObject.FindWithTag("Speaker").GetComponent<Image>().sprite = Resources.Load<Sprite>($"Characters/{currentDialog.sprite}");
+        nameField.text = currentDialog.author;
 
-        Debug.Log(audios.Count);
-        if (audios.Count > 0)
+        if (currentDialog.audio != "")
         {
-            Debug.Log($"{index} {audios[index]}");
+            Debug.Log($"{index} {currentDialog.audio}");
             audioSource.playOnAwake = false;
             audioSource.Stop();
-            audioSource.clip = Resources.Load(audios[index]) as AudioClip;
+            audioSource.clip = Resources.Load($"audio/dialogue/{currentDialog.audio}") as AudioClip;
             audioSource.Play();
         }
 
-        foreach (char c in splitted[0].ToCharArray())
+        foreach (char c in currentDialog.text.ToCharArray())
             {
-                text.text += c;
+                textField.text += c;
                 yield return new WaitForSeconds(TextSpeed);
             }
     }
 
     private void IsNextLine()
     {
-        if (index < lines.Count - 1)
+        if (dialogues.Count > 0)
         {
-            index++;
-            text.text = string.Empty;
+            currentDialog = dialogues.Dequeue();
+            textField.text = string.Empty;
             StartCoroutine(TypeLine());
         } else
         {
