@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 public class OrderSystem : MonoBehaviour
@@ -14,7 +11,7 @@ public class OrderSystem : MonoBehaviour
     private GameObject shadow;
     private int _currentSprite;
 
-    private GameObject[] childs = new GameObject[3];
+    /*private GameObject[] childs = new GameObject[3];*/
 
     public static string receipt;
 
@@ -22,42 +19,22 @@ public class OrderSystem : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+/*        for (int i = 0; i < 3; i++)
         {
             Transform childTransform = gameObject.transform.GetChild(i);
             childs[i] = childTransform.gameObject;
             Color currentColor = childs[i].GetComponent<Image>().color;
             childs[i].GetComponent<Image>().color = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
+        }*/
+
+        if (receipt != "")
+        {
+            Debug.Log(receipt);
+            Image image = gameObject.transform.GetChild(1).gameObject.GetComponent<Image>();
+            Color currentColor = image.color;
+            image.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
+            image.sprite = Resources.Load<Sprite>($"Sprites/Orders/ikonki/icon_{receipt}");
         }
-
-            if (receipt != "")
-            {
-                Image image = childs[1].GetComponent<Image>();
-                Color currentColor = image.color;
-                image.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
-
-                switch (receipt)
-                {
-                  case "сахар":
-                    image.sprite = icons[5];
-                    break;
-                  case "€блоки":
-                    image.sprite = icons[0];
-                    break;
-                  case "клубника":
-                    image.sprite = icons[4];
-                    break;
-                  case "сгущенка":
-                    image.sprite = icons[3];
-                    break;
-                  case "паста":
-                    image.sprite = icons[1];
-                    break;
-                  case "сЄмга":
-                    image.sprite = icons[2];
-                    break;
-                }
-            }
 
         shadow = GameObject.FindWithTag("OrderShadow");
         _currentSprite = 0;

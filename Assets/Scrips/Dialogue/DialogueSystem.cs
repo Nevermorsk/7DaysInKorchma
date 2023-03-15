@@ -4,14 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textField;
     [SerializeField] private TextMeshProUGUI nameField;
-
-    public static bool definitionHidden = true;
-    public static bool canNextDay;
 
 /*    public static List<string> lines = new List<string>();
     public static List<Sprite> authorSprite = new List<Sprite>();
@@ -19,7 +17,6 @@ public class DialogueSystem : MonoBehaviour
 
     [SerializeField] float TextSpeed;
 
-    private static AudioSource addMoney;
     [SerializeField] private GameObject SceneSwitcher;
     [SerializeField] private GameObject Dialogue;
 
@@ -30,10 +27,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject DeclineBtn;
 
     private AudioSource audioSource;
-    private int index;
     private Replica currentDialog;
-    private Queue<Replica> dialogues;
-
+    private bool skipDial = false;
     private void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -41,45 +36,21 @@ public class DialogueSystem : MonoBehaviour
         AudioMixerGroup[] audioMixGroup = audioMixer.FindMatchingGroups("Master");
         audioSource.outputAudioMixerGroup = audioMixGroup[3];
 
-        addMoney = GetComponent<AudioSource>();
-        SceneSwitcher.SetActive(false);
-
-        dialogues = Replica.MakeQueue($"dialogues_day{DontDestroy.day}");
-        currentDialog = dialogues.Dequeue();
-        /*
-                lines.Clear();
-                authorSprite.Clear();
-                audios.Clear();
-
-                Dialogues.DefineDialogue(DontDestroy.day, DontDestroy.counter, krips, charachters);
-
-                text.text = string.Empty;
-                nameField.text = lines[index].Split("|")[1];*/
-
-        StartCoroutine(TypeLine()); // старт диалога
+        StartCoroutine(Start());
+        IEnumerator Start()
+        {
+            while (DontDestroy.dayDialogue.IsUnityNull()) yield return null;
+            currentDialog = DontDestroy.dayDialogue.Dequeue();
+            StartCoroutine(TypeLine()); // старт диалога
+        }
     }
-    public static void moneyChange(int money, bool add = true)
-    {
-        Debug.Log($"{money} {DontDestroy.money}");
-        if (!add && DontDestroy.money >= money)
-        {
-            DontDestroy.money -= money;
-        }
-        else if (add)
-        {
-            addMoney.Play();
-            DontDestroy.money += money;
-            Debug.Log($"{money} {DontDestroy.money}");
-        }
-        else 
-        {
-            Debug.Log("нет денег");
-        }
-       
-    }
+
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !pauseScript.isPaused)
+#pragma warning disable CS0618 // Тип или член устарел
+        if (Input.GetMouseButtonDown(0) && !pauseScript.isPaused 
+            && !GameObject.FindGameObjectWithTag("trading").transform.GetChild(0).gameObject.active
+            && Dialogue.active)
         {
             if (textField.text == currentDialog.text)
             {
@@ -87,10 +58,10 @@ public class DialogueSystem : MonoBehaviour
             }
             else
             {
-                StopAllCoroutines();
-                textField.text = currentDialog.text;
+                skipDial = true;
             }
         }
+#pragma warning restore CS0618 // Тип или член устарел
     }
 
     IEnumerator TypeLine()
@@ -98,9 +69,8 @@ public class DialogueSystem : MonoBehaviour
         GameObject.FindWithTag("Speaker").GetComponent<Image>().sprite = Resources.Load<Sprite>($"Characters/{currentDialog.sprite}");
         nameField.text = currentDialog.author;
 
-        if (currentDialog.audio != "")
+        if (currentDialog.audio != null)
         {
-            Debug.Log($"{index} {currentDialog.audio}");
             audioSource.playOnAwake = false;
             audioSource.Stop();
             audioSource.clip = Resources.Load($"audio/dialogue/{currentDialog.audio}") as AudioClip;
@@ -108,35 +78,56 @@ public class DialogueSystem : MonoBehaviour
         }
 
         foreach (char c in currentDialog.text.ToCharArray())
+        {
+            if (skipDial)
             {
-                textField.text += c;
-                yield return new WaitForSeconds(TextSpeed);
+                textField.text = currentDialog.text;
+                skipDial = false;
+                break;
             }
+            textField.text += c;
+            yield return new WaitForSeconds(TextSpeed);
+        }
+
+        if (currentDialog.action != null)
+        {
+            StartCurrentAction();
+        }
+        if (currentDialog.moneyChange != 0)
+        {
+            DontDestroy.moneyChange(currentDialog.moneyChange);
+        }
+
     }
 
     private void IsNextLine()
     {
-        if (dialogues.Count > 0)
+        if (currentDialog.order == null)
         {
-            currentDialog = dialogues.Dequeue();
+            currentDialog = DontDestroy.dayDialogue.Dequeue();
             textField.text = string.Empty;
             StartCoroutine(TypeLine());
         } else
         {
+            OrderSystem.receipt = currentDialog.order;
             Dialogue.SetActive(false);
             SceneSwitcher.SetActive(true);
         }
+        
     }
-
-    public void Hide()
+    public void StartCurrentAction()
     {
-        AcceptBtn.SetActive(false);
-        DeclineBtn.SetActive(false);
-    }
+        switch (currentDialog.action)
+        {
+            case "trading":
+                GameObject.FindGameObjectWithTag("trading").transform.GetChild(0).gameObject.SetActive(true);
+                break;
 
-    public void Show()
-    {
-        AcceptBtn.SetActive(false);
-        DeclineBtn.SetActive(false);
+            case "nextDay":
+                DontDestroy.Day += 1;
+                transitionScipt.LoadScene($"Window 1", DontDestroy.Day);
+                Debug.Log("day 2");
+                break;
+        }
     }
 }

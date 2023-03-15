@@ -23,6 +23,7 @@
     "author": "Заказчик",
     "sprite": "krip4",
     "audio": "gg/gg8",
+    "moneyChange": 60,
     "action": "trading"
   },
   {

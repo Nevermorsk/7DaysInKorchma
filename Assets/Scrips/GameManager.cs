@@ -9,24 +9,19 @@ public class GameManager : MonoBehaviour
 
     private GameObject FryingPan;
 
-    public static bool hidden;
-
     private void Awake()
     {
-        int counter = DontDestroy.counter;
-        Order.DefineOrder(DontDestroy.day, DontDestroy.counter);
+/*        int counter = DontDestroy.counter;
+        Order.DefineOrder(DontDestroy.Day, DontDestroy.counter);*/
     }
 
     private void Start()
     {
-        if (!hidden)
-        {
-            FryingPan = GameObject.FindWithTag("FryingPan");
-        }
+        FryingPan = GameObject.FindWithTag("FryingPan");
 
         foreach (var pair in DontDestroy.byedItems)
         {
-            Debug.Log(pair);
+            // Debug.Log(pair);
             GameObject.Find(pair.Key).SetActive(pair.Value);
         }
 
@@ -35,25 +30,19 @@ public class GameManager : MonoBehaviour
             vino[i].SetActive(false);
         }
 
-        if (!hidden) {
-            SceneSwitcher.SetActive(false);
+        SceneSwitcher.SetActive(false);
 
-            FryingPan.GetComponent<ColorCheck>().done = false;
-            FryingPan.GetComponent<ColorCheck>().pancakeMakeFirst = false;
-            FryingPan.GetComponent<ColorCheck>().pancakeMakeFinal = false;
-        } else
-        {
-            SceneSwitcher.SetActive(true);
-        }
+        FryingPan.GetComponent<ColorCheck>().done = false;
+        FryingPan.GetComponent<ColorCheck>().pancakeMakeFirst = false;
+        FryingPan.GetComponent<ColorCheck>().pancakeMakeFinal = false;
+
     }
 
    void Update()
     {
-        if (!hidden) {
-            if (FryingPan.GetComponent<ColorCheck>().done)
-            {
-                SceneSwitcher.SetActive(true);
-            }
+        if (FryingPan.GetComponent<ColorCheck>().done)
+        {
+            SceneSwitcher.SetActive(true);
         }
     }
 }

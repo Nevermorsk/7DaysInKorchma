@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 556500835}
   - component: {fileID: 556500834}
   m_Layer: 5
-  m_Name: salomon
+  m_Name: salmon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,9 +819,10 @@ GameObject:
   - component: {fileID: 690182089}
   - component: {fileID: 690182088}
   - component: {fileID: 690182090}
+  - component: {fileID: 690182091}
   m_Layer: 5
   m_Name: SceneSwitcher
-  m_TagString: Untagged
+  m_TagString: SceneSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,8 +898,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54eb4af68aec4ea4a931580205dfe7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: Window 1
-  trading: {fileID: 0}
+--- !u!114 &690182091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690182086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 690182088}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 690182090}
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: Switch
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Window 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &749039934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1298,7 @@ GameObject:
   - component: {fileID: 997324974}
   - component: {fileID: 997324973}
   m_Layer: 5
-  m_Name: apples
+  m_Name: apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,37 +1562,6 @@ Transform:
   m_Father: {fileID: 1522760266}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1118918776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1118918777}
-  m_Layer: 5
-  m_Name: circle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1118918777
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118918776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1309123631}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1127805807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1651,7 @@ GameObject:
   - component: {fileID: 1152023865}
   - component: {fileID: 1152023864}
   m_Layer: 5
-  m_Name: starberry
+  m_Name: strawberries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1760,7 +1784,7 @@ GameObject:
   - component: {fileID: 1184659362}
   - component: {fileID: 1184659361}
   m_Layer: 5
-  m_Name: nutella
+  m_Name: chocolatepaste
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2307,8 +2331,7 @@ Transform:
   m_LocalPosition: {x: -0.097, y: -1.1, z: -6.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1118918777}
+  m_Children: []
   m_Father: {fileID: 1216458434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2463,8 +2486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 21300000, guid: 962b0559b739a664d9d5818b96cb3707, type: 3}
-  cookingTime: 10
-  secondCookingTime: 4
+  cookingTime: 1
+  secondCookingTime: 1
   colorThreshold: 0.09
   targetColor: {r: 0.95686275, g: 0.6431373, b: 0.3764706, a: 1}
   pancake: {fileID: 21300000, guid: bc3e37ef3b5a4264ba2b516ec4a12cef, type: 3}
@@ -2741,7 +2764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 0, y: -320}
   m_SizeDelta: {x: 196, y: 174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717085407
@@ -2927,7 +2950,7 @@ GameObject:
   - component: {fileID: 1927814042}
   - component: {fileID: 1927814041}
   m_Layer: 5
-  m_Name: sgushenka
+  m_Name: sguxa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

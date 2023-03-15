@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class JsonLoad : MonoBehaviour

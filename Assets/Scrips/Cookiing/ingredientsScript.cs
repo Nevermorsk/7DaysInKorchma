@@ -6,44 +6,45 @@ public class ingredientsScript : MonoBehaviour
 {
     public static bool canAdd = false;
     public static string addedIngredient;
+ 
     public void apple()
     {
         if (canAdd)
         {
-            Debug.Log("apples");
-            addedIngredient = "€блоки";
+            Debug.Log("apple");
+            addedIngredient = "apple";
         }
     }    
     public void nutella()
     {
         if (canAdd)
         {
-            Debug.Log("nutella");
-            addedIngredient = "паста";
+            Debug.Log("chocolatepaste");
+            addedIngredient = "chocolatepaste";
         }
     }    
     public void sgushenka()
     {
         if (canAdd)
         {
-            Debug.Log("sgushenka");
-            addedIngredient = "сгущенка";
+            Debug.Log("sguxa");
+            addedIngredient = "sguxa";
         }
     }    
     public void starberry()
     {
         if (canAdd)
         {
-            Debug.Log("starberry");
-            addedIngredient = "клубника";
+            Debug.Log("strawberries");
+            addedIngredient = "strawberries";
         }
     }   
     public void salomon()
     {
         if (canAdd)
         {
-            Debug.Log("salomon");
-            addedIngredient = "сЄмга";
+            Debug.Log("salmon");
+            addedIngredient = "salmon";
         }
     }    
     public void sugar()
@@ -51,7 +52,7 @@ public class ingredientsScript : MonoBehaviour
         if (canAdd)
         {
             Debug.Log("sugar");
-            addedIngredient = "сахар";
+            addedIngredient = "sugar";
         }
     }
 

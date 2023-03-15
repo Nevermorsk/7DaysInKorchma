@@ -28,9 +28,10 @@ public class transitionScipt : MonoBehaviour
         AudioMixerGroup[] audioMixGroup = audioMixer.FindMatchingGroups("Master");
         audioSource.outputAudioMixerGroup = audioMixGroup[3];
 
-        backgroundMusic = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
-        backgroundMusic.Pause();
-
+        try {
+            backgroundMusic = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
+            backgroundMusic.Pause();
+        } catch { }
         videoPlayer.Stop();
 
         videoPlayer.url = Path.Combine(Application.streamingAssetsPath, $"day{dayNumber}.mp4");
@@ -42,17 +43,17 @@ public class transitionScipt : MonoBehaviour
         videoPlayer.Play();
         if (skipScene)
         {
-            backgroundMusic.Play();
+            try { backgroundMusic.Play(); } catch { }
             StartCoroutine(LoadNextScene());
         }
         else
         {
             videoPlayer.loopPointReached += CheckOver;
         }
-    }
+        }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        backgroundMusic.Play();
+        try { backgroundMusic.Play(); } catch { }
         StartCoroutine(LoadNextScene());
     }
     IEnumerator LoadNextScene()

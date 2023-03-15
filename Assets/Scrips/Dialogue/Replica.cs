@@ -11,6 +11,8 @@ public class Replica
     public string sprite;
     public string audio;
     public string action;
+    public string order;
+    public int moneyChange = 0;
 
     public static Queue<Replica> MakeQueue(string fileName)
     {

@@ -18,10 +18,10 @@ TagManager:
   - resetBtn
   - dayclip
   - dialog
-  - accept
-  - decline
   - indicator
   - SceneSwitcher
+  - trading
+  - buttons
   layers:
   - Default
   - TransparentFX

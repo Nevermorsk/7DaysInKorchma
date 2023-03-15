@@ -16,15 +16,15 @@ public class buyingScript : MonoBehaviour
     
     void Start()
     {
-        background.sprite = backgrounds[DontDestroy.day];
-        switch (DontDestroy.day)
+        background.sprite = backgrounds[DontDestroy.Day-1];
+        switch (DontDestroy.Day)
         {
-            case 0:
+            case 1:
                 apple.gameObject.SetActive(true);
                 sgushenka.gameObject.SetActive(false);
                 upgrade.gameObject.SetActive(false);
                 break;           
-            case 1:
+            case 2:
                 apple.gameObject.SetActive(true);
                 sgushenka.gameObject.SetActive(true);
                 upgrade.gameObject.SetActive(true);
@@ -33,37 +33,36 @@ public class buyingScript : MonoBehaviour
     }
 
     public void buyAppleClc() {
-        buySound.Play();
-        if (DontDestroy.money >= 40)
+
+        if (DontDestroy.moneyChange(-40))
         {
-            DontDestroy.money -= 40;
+            buySound.Play();
             apple.interactable = false;
-            DontDestroy.byedItems["apples"] = true;
+            DontDestroy.byedItems["apple"] = true;
         }
         
     }
     public void buySgushenkaClc() {
-        buySound.Play();
-        if (DontDestroy.money >= 60)
+ 
+        if (DontDestroy.moneyChange(-60))
         {
-            DontDestroy.money -= 60;
+            buySound.Play();
             sgushenka.interactable = false;
-            DontDestroy.byedItems["sgushenka"] = true;
+            DontDestroy.byedItems["sguha"] = true;
         }
 
     }
     public void buyUpgradeClc() {
-        buySound.Play();
-        Debug.Log(DontDestroy.money);
-        if (DontDestroy.money >= 300)
+        
+        if (DontDestroy.moneyChange(-300))
         {
-            DontDestroy.money -= 300;
+            buySound.Play();
             upgrade.interactable = false;
             DontDestroy.byedItems["upgrade"] = true;
         }
     }    
     public void close() {
-        gameObject.SetActive(false);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
 }
