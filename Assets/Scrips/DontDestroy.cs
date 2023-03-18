@@ -38,17 +38,15 @@ public class DontDestroy : MonoBehaviour
 
     public static bool moneyChange(int money)
     {
-        Debug.Log($"{money} {DontDestroy.money}");
+        DontDestroy dontDest = GameObject.FindGameObjectWithTag("DontDestroy").GetComponent<DontDestroy>();
         if (money < 0 && DontDestroy.money >= money * -1)
         {
-            DontDestroy.money += money;
+            dontDest.playAnim(money*-1, '-', false);
             return true;
         }
         else if (money > 0)
         {
-            GameObject.FindGameObjectWithTag("DontDestroy").GetComponent<DontDestroy>().addMoney.Play();
-            DontDestroy.money += money;
-            Debug.Log($"{money} {DontDestroy.money}");
+            dontDest.playAnim(money, '+', true);
             return true;
         }
         else
@@ -58,6 +56,21 @@ public class DontDestroy : MonoBehaviour
         }
     }
 
+    public void playAnim(int money, char act, bool needSound)
+    {
+        GameObject addMoney = GameObject.FindGameObjectWithTag("money").transform.GetChild(0).gameObject;
+        addMoney.GetComponent<TextMeshProUGUI>().text = $"{money} {act}";
+        addMoney.GetComponent<Animator>().SetTrigger("addMoney");
+        StartCoroutine(pay(act == '+' ? money : money * -1, needSound));
+
+    }
+
+    IEnumerator pay(int newMoney, bool needSound) {
+        yield return new WaitForSeconds(0.4f);
+        if (needSound) { addMoney.Play(); }
+        yield return new WaitForSeconds(1.2f);
+        money += newMoney;
+    }
     void Start()
     {
         if (firstStart)
