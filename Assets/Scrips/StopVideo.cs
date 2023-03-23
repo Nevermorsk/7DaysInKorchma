@@ -5,6 +5,7 @@ using UnityEngine.Video;
 
 public class StopVideo : MonoBehaviour
 {
+    
     [SerializeField] private VideoPlayer _video;
     // Start is called before the first frame update
     private bool stop;
@@ -23,11 +24,13 @@ public class StopVideo : MonoBehaviour
                 PauseGame();
             }
         }
-        else {
-            if(Input.GetKeyUp(KeyCode.Escape)){
+        else 
+        {
+            if(Input.GetKeyUp(KeyCode.Escape))
+            {
                 _video.Play();
                 stop = false;
-                            }
+            }
         }
     }
     public void PauseGame()
