@@ -221,6 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438132008}
   - component: {fileID: 1438132009}
+  - component: {fileID: 1438132010}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: dayclip
@@ -278,6 +279,19 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &1438132010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438132007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0536075439bab74686b53a6918bde94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _video: {fileID: 1438132009}
 --- !u!1 &1680831802
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +303,7 @@ GameObject:
   - component: {fileID: 1680831805}
   - component: {fileID: 1680831804}
   - component: {fileID: 1680831803}
+  - component: {fileID: 1680831806}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -362,6 +377,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680831806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680831802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0536075439bab74686b53a6918bde94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _video: {fileID: 1438132009}
 --- !u!1 &1910693499
 GameObject:
   m_ObjectHideFlags: 0
