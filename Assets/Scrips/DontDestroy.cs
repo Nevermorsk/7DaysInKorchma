@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
+    
     public static int counter;
     private static int money;
     private static int day = 0;
-    public static int Day { get => day; set {
+    public static int Day 
+    { get => day; 
+        set
+        {
             day = value;
             loadDialog();
-        } }
+        } 
+    }
 
     public static int Money { get => money; set => money = value; }
 
@@ -51,7 +56,7 @@ public class DontDestroy : MonoBehaviour
         }
         else
         {
-            Debug.Log("нет денег");
+            Debug.Log("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
             return false;
         }
     }
