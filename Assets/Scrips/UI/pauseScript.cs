@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class pauseScript : MonoBehaviour
 {
@@ -46,12 +47,14 @@ public class pauseScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log(SceneManager.GetActiveScene().name);
+            string sceneName = SceneManager.GetActiveScene().name;
+            Debug.Log(sceneName);
             if (isPaused)
             {
                 Resume();
             }
-            else if (SceneManager.GetActiveScene().name != "MainMenu")
+           
+            else if (sceneName != "MainMenu" && sceneName != "Settings" && sceneName != "difficultyChoice")
             {
                 Pause();
             }
@@ -63,6 +66,11 @@ public class pauseScript : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         pauseSettingsUI.SetActive(false);
+
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("dayclip");
+            obj[1].GetComponent<VideoPlayer>().Pause();
+            obj[0].GetComponent<AudioSource>().Pause();
+
         isPaused = true;
     }
 
@@ -71,6 +79,13 @@ public class pauseScript : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenuUI.SetActive(false);
         pauseSettingsUI.SetActive(false);
+        try
+        {
+            GameObject[] obj = GameObject.FindGameObjectsWithTag("dayclip");
+            obj[1].GetComponent<VideoPlayer>().Play();
+            obj[0].GetComponent<AudioSource>().Play();
+        }
+        catch { }
         isPaused = false;
     }
 }

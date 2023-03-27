@@ -8,6 +8,7 @@ public class DontDestroy : MonoBehaviour
 {
     public static int counter;
     private static int money;
+    public static float moneyModifyer = 1f;
     private static int day = 0;
     public static int Day { get => day; set {
             day = value;
@@ -28,7 +29,8 @@ public class DontDestroy : MonoBehaviour
         { "chocolatepaste", false },
         { "strawberries", false },
         { "sugar", true },
-        { "upgrade", false }
+        { "upgrade", false },
+        { "vine", true }
 };
 
     public static Queue<Replica> dayDialogue;
@@ -46,7 +48,7 @@ public class DontDestroy : MonoBehaviour
         }
         else if (money > 0)
         {
-            dontDest.playAnim(money, '+', true);
+            dontDest.playAnim((int)Unity.Mathematics.math.round(money*moneyModifyer), '+', true);
             return true;
         }
         else
@@ -75,7 +77,7 @@ public class DontDestroy : MonoBehaviour
     {
         if (firstStart)
         {
-            Day = 1;
+            Day = 0;
             firstStart = false;
         }
 
@@ -94,11 +96,11 @@ public class DontDestroy : MonoBehaviour
         string SceneName = SceneManager.GetActiveScene().name;
         if (SceneName != "Window 1" && SceneName != "Day 1")
         {
-            GameObject.FindGameObjectWithTag("money").SetActive(false);
+            GameObject.FindGameObjectWithTag("DontDestroy").transform.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
-            GameObject.FindGameObjectWithTag("money").SetActive(true);
+            GameObject.FindGameObjectWithTag("DontDestroy").transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

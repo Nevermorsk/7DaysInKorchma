@@ -11,13 +11,9 @@ public class MainMenuButtonsScript : MonoBehaviour
     public AudioMixerGroup effectsMixer;
     public AudioMixerGroup dilogueMixer;
 
-    void Start()
-    {
-
-    }
     public void StartClc()
     {
-        transitionScipt.LoadScene("Window 1", 1);
+        transitionScipt.LoadScene("Window 1", 0);
     }    
     public void SettingsClc()
     {

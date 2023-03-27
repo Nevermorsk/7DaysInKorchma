@@ -41,4 +41,26 @@ public class SettingsScript : MonoBehaviour
         PlayerPrefs.SetFloat("dialogueVolume", dialogueVolume.value);
         dilogueMixer.audioMixer.SetFloat("DialogueVolume", volume);
     }
+
+    public void changeResolution(int value)
+    {
+        switch (value)
+        {
+            case 0:
+                Screen.SetResolution(800, 600, true);
+                break;
+            case 1:
+                Screen.SetResolution(1366, 768, true);
+                break;
+            case 2:
+                Screen.SetResolution(1920, 1080, true);
+                break;
+            case 3:
+                Screen.SetResolution(2560, 1440, true);
+                break;
+            case 4:
+                Screen.SetResolution(3840, 2160, true);
+                break;
+        }
+    }
 }

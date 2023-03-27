@@ -7,39 +7,57 @@ public class OrderSystem : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float delay;
     [SerializeField] private Sprite[] icons;
+    [SerializeField] private GameObject SceneSwitcher;
 
     private GameObject shadow;
     private int _currentSprite;
 
-    /*private GameObject[] childs = new GameObject[3];*/
 
     public static string receipt;
+    public static int fatalEnd;
 
-    [HideInInspector] public bool timerDone = false;
+    [HideInInspector] public static bool timerDone = false;
 
-    void Start()
-    {
-/*        for (int i = 0; i < 3; i++)
+    void Start() 
+    {   
+        timerDone = false;
+        shadow = GameObject.FindWithTag("OrderShadow");
+
+        foreach (var pair in DontDestroy.byedItems)
         {
-            Transform childTransform = gameObject.transform.GetChild(i);
-            childs[i] = childTransform.gameObject;
-            Color currentColor = childs[i].GetComponent<Image>().color;
-            childs[i].GetComponent<Image>().color = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
-        }*/
+            // Debug.Log(pair);
+            GameObject.Find(pair.Key).SetActive(pair.Value);
+        }
 
         if (receipt != "")
         {
             Debug.Log(receipt);
-            Image image = gameObject.transform.GetChild(1).gameObject.GetComponent<Image>();
-            Color currentColor = image.color;
-            image.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
-            image.sprite = Resources.Load<Sprite>($"Sprites/Orders/ikonki/icon_{receipt}");
+            
+
+            if (DontDestroy.byedItems[receipt])
+            {
+                Image image = gameObject.transform.GetChild(1).gameObject.GetComponent<Image>();
+                Color currentColor = image.color;
+                image.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
+                image.sprite = Resources.Load<Sprite>($"Sprites/Orders/ikonki/icon_{receipt}");
+
+                
+                _currentSprite = 0;
+                StartCoroutine(Delay());
+                shadow.SetActive(true);
+            } else {
+                timerDone = true;
+                SceneSwitcher.SetActive(true);
+
+            }
+        }
+        else
+        {
+            StartCoroutine(Delay());
+            shadow.SetActive(true);
         }
 
-        shadow = GameObject.FindWithTag("OrderShadow");
-        _currentSprite = 0;
-        StartCoroutine(Delay());
-        shadow.SetActive(true);
+
     }
 
     IEnumerator Delay()
@@ -57,6 +75,7 @@ public class OrderSystem : MonoBehaviour
             StopAllCoroutines();
             shadow.SetActive(false);
             timerDone = true;
+            SceneSwitcher.SetActive(true);
         }
         else
         {

@@ -16,7 +16,6 @@ public class StartScript : MonoBehaviour
         videoPlayer.Stop();
         videoPlayer.url = Path.Combine(Application.streamingAssetsPath, $"{videoName}.mp4");
         videoPlayer.Prepare();
-        videoPlayer.Prepare();
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
     }

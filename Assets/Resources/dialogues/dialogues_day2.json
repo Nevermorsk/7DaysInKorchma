@@ -1,36 +1,116 @@
 [
-  {
-    "text": "Здравствуйте, можно блин с сахаром?",
-    "author": "Заказчик",
-    "sprite": "krip1"
+  { 
+    "text": "Здравствуйте, слыхал у вас блины делают с сахаром зашибенные. Сварганите один?", 
+    "author": "Заказчик", 
+    "sprite": "krip6"
+  }, 
+  { 
+    "text": "Да легко",
+    "author": "Вы", 
+    "sprite": "krip6", 
+    "order": "sugar" 
+  }, 
+  { 
+    "text": "ОГО! А еще один сделаете?.", 
+    "author": "Заказчик", 
+    "sprite": "krip6", 
+    "moneyChange": 60 
+  }, 
+  { 
+    "text": "И это можно", 
+    "author": "Вы", 	
+    "sprite": "krip6", 
+    "order": "sugar" 
+  }, 
+  { 
+    "text": "Вот спасибо вам!", 
+    "author": "Заказчик", 
+    "sprite": "krip6", 
+    "moneyChange": 60 
+  }, 
+  { 
+    "text": "Здравствуйте, а с яблочком сделаете?", 
+    "author": "Заказчик", 
+    "sprite": "krip3"
+  }, 
+  { 
+    "text": "Пожалуй, что сделаю", 
+    "author": "Вы", 
+    "sprite": "krip3", 
+    "order": "apple" 
+  }, 
+  { 
+    "text": "Спасибо", 
+    "author": "Вы", 
+    "sprite": "krip3", 
+    "moneyChange": 70 
+   },
+   { 
+    "text": "А мне с яблочком зашибенете?", 
+    "author": "Заказчик", 
+    "sprite": "krip5"
+  }, 
+  { 
+    "text": "Да легко. Я с детства шибеню, чтобы это ни значило", 
+    "author": "Вы", 
+    "sprite": "krip5", 
+    "order": "apple" 
   },
-  {
-    "text": "Будет сделано.",
-    "author": "Вы",
-    "sprite": "krip2",
-    "audio": "gg/gg6",
-    "order": "sugar"
+  {  
+    "text": "Отличный блин. Спасибо вам.", 
+    "author": "Вы", 
+    "sprite": "krip5", 
+    "moneyChange": 70 
   },
-  {
-    "text": "Спасибо, вот деньги.",
-    "author": "Заказчик",
-    "sprite": "krip3",
-    "audio": "gg/gg7",
-    "moneyChange": 60
+  {  
+    "text": "Здравствуйте, можно блин с сахаром?", 
+    "author": "Невидимый человек", 
+    "sprite": "nosee", 
+    "audio": "nosee/nosee1"
+  }, 
+  { 
+    "text": "Что, простите?", 
+    "author": "Вы", 
+    "sprite": "nosee", 
+    "audio": "gg/gg7"
+
   },
-  {
-    "text": "Потаргуемся?",
-    "author": "Заказчик",
-    "sprite": "krip4",
-    "audio": "gg/gg8",
-    "moneyChange": 60,
-    "action": "trading"
+  {  
+    "text": "Я говорю, можно блин с сахаром?", 
+    "author": "Невидимый человек", 
+    "sprite": "nosee", 
+    "audio": "nosee/nosee2"
+  }, 
+  { 
+    "text": "Да хватит мямлить, нормально скажи", 
+    "author": "Вы", 
+    "sprite": "nosee", 
+    "audio": "gg/gg8"
   },
-  {
-    "text": "Всего доброго.",
-    "author": "Вы",
-    "sprite": "krip4",
-    "audio": "gg/gg9",
-    "action": "nextDay"
+  {  
+    "text": "Да пошли вы", 
+    "author": "Невидимый человек", 
+    "sprite": "nosee", 
+    "audio": "nosee/nosee3"
+  },
+  {  
+    "text": "Здравствуйте, вы должны нам 150 золотых. Осилите?", 
+    "author": "Налоговик", 
+    "sprite": "taxman",
+    "moneyChange": -150 
+  },
+  {  
+    "text": "Говорил же, что зайду к тебе. Не хочешь еще чего-нибудь у меня купить?", 
+    "author": "Странствующий торговец", 
+    "sprite": "shoper",
+    "audio": "shoper/shoper6"
+  },
+  {  
+    "text": "Завтра к вам опять вернусь", 
+    "author": "Странствующий торговец", 
+    "sprite": "shoper",
+    "audio": "shoper/shoper5",
+    "action":"nextDay"
   }
 ]
+

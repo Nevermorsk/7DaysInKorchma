@@ -1,10 +1,13 @@
+using FreeDraw;
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ColorCheck : MonoBehaviour
 {
     [SerializeField] private Sprite circle;
+    [SerializeField] private GameObject SceneSwitcher;
 
     public float cookingTime = 30f;
     public float secondCookingTime = 10f;
@@ -17,7 +20,8 @@ public class ColorCheck : MonoBehaviour
     public AudioSource cookingSound;
     [HideInInspector] public bool pancakeMakeFirst = false;
     [HideInInspector] public bool pancakeMakeFinal = false;
-    [HideInInspector] public bool done = false;
+    [HideInInspector] public bool pancackeDone = false;
+    [HideInInspector] public static bool vineNeed = false;
     private SpriteRenderer spriteRenderer;
     
     void Start()
@@ -25,10 +29,24 @@ public class ColorCheck : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = circle;
         ingredientsScript.addedIngredient = null;
+        BarrelDragAndDrop.isFilled = false;
+
     }
 
     void Update()
     {
+
+        if (pancakeMakeFinal && !vineNeed && OrderSystem.receipt == "")
+        {
+            SceneSwitcher.SetActive(true);
+        } else if (pancackeDone && !vineNeed)
+        {
+            SceneSwitcher.SetActive(true);
+        } else if (pancackeDone && BarrelDragAndDrop.isFilled) 
+        {
+            SceneSwitcher.SetActive(true);
+        }
+
         if (!pancakeMakeFirst && CheckColor(targetColor)) {
             spriteRenderer.sprite = cap;
             pancakeMakeFirst = true;
@@ -36,15 +54,15 @@ public class ColorCheck : MonoBehaviour
             StartCoroutine(Delay1(cookingTime));
             
         }
-        else if (!pancakeMakeFinal && ingredientsScript.addedIngredient != null)
+        else if (!pancackeDone && ingredientsScript.addedIngredient != null && OrderSystem.receipt != "")
         {
             spriteRenderer.sprite = cap;
-            pancakeMakeFinal = true;
             ingredientsScript.canAdd = false;
             cookingSound.Play();
             StartCoroutine(Delay2(secondCookingTime));
           
         }
+
     }
 
     IEnumerator Delay1(float time)
@@ -53,6 +71,7 @@ public class ColorCheck : MonoBehaviour
         spriteRenderer.sprite = pancake;
         ingredientsScript.canAdd = true;
         cookingSound.Stop();
+        pancakeMakeFinal = true;
     }    
     IEnumerator Delay2(float time)
     {
@@ -61,7 +80,7 @@ public class ColorCheck : MonoBehaviour
         cookingSound.Stop();
         if (OrderSystem.receipt == ingredientsScript.addedIngredient)
         {
-            done = true;
+            pancackeDone = true;
         } else
         {
             resetBtn.SetActive(true);
@@ -69,11 +88,13 @@ public class ColorCheck : MonoBehaviour
     }
     public void resetClc()
     {
+        GetComponent<Drawable>().ResetCanvas();
         spriteRenderer.sprite = circle;
         ingredientsScript.addedIngredient = null;
         pancakeMakeFirst = false;
         pancakeMakeFinal = false;
-        done = false;
+        pancackeDone = false;
+        BarrelDragAndDrop.isFilled = false;
         GameObject.FindGameObjectWithTag("resetBtn").SetActive(false);
     }
     public bool CheckColor(Color targetColor)

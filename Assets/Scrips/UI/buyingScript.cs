@@ -16,7 +16,9 @@ public class buyingScript : MonoBehaviour
     
     void Start()
     {
-        background.sprite = backgrounds[DontDestroy.Day-1];
+        try { 
+            background.sprite = backgrounds[DontDestroy.Day-1];
+        } catch { }
         switch (DontDestroy.Day)
         {
             case 1:

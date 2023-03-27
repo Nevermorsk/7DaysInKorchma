@@ -1,0 +1,79 @@
+[
+  {
+    "text": "Мужик, а чё такое шоколадная паста, это съедобно вообще? Сделай мне блин с этой лабудой",
+    "author": "Заказчик",
+    "sprite": "krip4"
+  },
+  {
+    "text": "Да нормальная вещь, ща реализую",
+    "author": "Вы",
+    "sprite": "krip4",
+    "order": "chocolatepaste"
+  },
+  {
+    "text": "И ведь дейсвительно неплохо!",
+    "author": "Вы",
+    "sprite": "krip4",
+    "moneyChange": "120"
+  },
+  {
+    "text": "Здравствуйте, блин с сахаром и вина бокальчик мне",
+    "author": "Заказчик",
+    "sprite": "krip3"
+  },
+  {
+    "text": "Будет сделано.",
+    "author": "Вы",
+    "sprite": "krip3",
+    "order": "sugar",
+    "needVine": true
+  },
+  {
+    "text": "Ух, спасибо вам!.",
+    "author": "Заказчик",
+    "sprite": "krip3",
+    "moneyChange": 160
+  },
+  {
+    "text": "Здравствуйте, мне нужно подать блин с сёмгой к трапезе.",
+    "author": "Заказчик",
+    "sprite": "krip2"
+  },
+  {
+    "text": "Вас понял, сейчас им займусь",
+    "author": "Вы",
+    "sprite": "krip2",
+    "order": "semga"
+  },
+  {
+    "text": "Огромное спасибо",
+    "author": "Вы",
+    "sprite": "krip2",
+    "moneyChange": "140"
+  },
+  {
+    "text": "Господь, кто его пустил..",
+    "author": "Вы",
+    "sprite": "headless",
+    "audio": "gg/gg38"
+  },
+  {
+    "text": "...",
+    "author": "отец?",
+    "sprite": "headlessdad/headlessdad1",
+    "audio": "headless"
+  },
+  {
+    "text": "Отец?",
+    "author": "Вы",
+    "sprite": "headless",
+    "audio": "gg/gg38"
+  },
+  {
+    "text": "...",
+    "author": "отец?",
+    "sprite": "headlessdad/headlessdad2",
+    "audio": "headless",
+    "action": "nextDay"
+  }
+]

@@ -12,7 +12,7 @@ public class transitionScipt : MonoBehaviour
 
     public bool skipScene = false;
     public VideoPlayer videoPlayer;
-    public AudioSource backgroundMusic;
+    private AudioSource backgroundMusic;
 
     public static void LoadScene(string toSceneName, int toDayNumber)
     {

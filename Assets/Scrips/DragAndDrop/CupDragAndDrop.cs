@@ -23,24 +23,22 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
 
     void Update()
     {
-        _isFilled = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isFilled;
-        _isDraggable = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isDraggable;
+        _isFilled = BarrelDragAndDrop.isFilled;
+        _isDraggable = BarrelDragAndDrop.isDraggable;
 
         if (_isFilled)
         {
             GetComponent<Image>().sprite = filledSprite;
-            rectTransform.sizeDelta = new Vector2(60, 67);
         } else
         {
             GetComponent<Image>().sprite = rightSprite;
-            rectTransform.sizeDelta = new Vector2(95, 57);
         }
     }
 
     private void Awake()
     {
-        _isFilled = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isFilled;
-        _isDraggable = GameObject.FindWithTag("Barrel").GetComponent<BarrelDragAndDrop>().isDraggable;
+        _isFilled = BarrelDragAndDrop.isFilled;
+        _isDraggable = BarrelDragAndDrop.isDraggable;
 
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -62,7 +60,7 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         if (!_isDraggable) { return; }
-        rectTransform.anchoredPosition += eventData.delta;
+        rectTransform.anchoredPosition += new Vector2(eventData.delta.x * 1.8f, eventData.delta.y * 1.3f);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -74,11 +72,9 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
             rectTransform.anchoredPosition = startPosition;
 
             GetComponent<Image>().sprite = rightSprite;
-            rectTransform.sizeDelta = new Vector2(95, 57);
         } else
         {
             GetComponent<Image>().sprite = leftSprite;
-            rectTransform.sizeDelta = new Vector2(60, 67);
         }
     }
 }
