@@ -52,7 +52,7 @@
     "author": "Вы", 
     "sprite": "king", 
     "audio":  "gg/ggnach1",
-    "action": "end"
+    "action": "nextDay"
   }
 ]
 

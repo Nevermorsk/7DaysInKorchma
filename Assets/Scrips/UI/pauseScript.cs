@@ -54,7 +54,7 @@ public class pauseScript : MonoBehaviour
                 Resume();
             }
            
-            else if (sceneName != "MainMenu" && sceneName != "Settings" && sceneName != "difficultyChoice")
+            else if (sceneName != "MainMenu" && sceneName != "Settings")
             {
                 Pause();
             }
@@ -66,11 +66,13 @@ public class pauseScript : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         pauseSettingsUI.SetActive(false);
-
+        try
+        {
             GameObject[] obj = GameObject.FindGameObjectsWithTag("dayclip");
             obj[1].GetComponent<VideoPlayer>().Pause();
             obj[0].GetComponent<AudioSource>().Pause();
-
+        }
+        catch { }
         isPaused = true;
     }
 

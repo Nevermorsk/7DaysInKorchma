@@ -73,43 +73,39 @@
     "author": "Вы", 
     "sprite": "nosee", 
     "audio": "gg/gg7"
-
   },
   {  
     "text": "Я говорю, можно блин с сахаром?", 
     "author": "Невидимый человек", 
     "sprite": "nosee", 
-    "audio": "nosee/nosee2"
+    "audio": "nosee/nosee2",
+    "action": "choice2"
   }, 
-  { 
-    "text": "Да хватит мямлить, нормально скажи", 
-    "author": "Вы", 
-    "sprite": "nosee", 
-    "audio": "gg/gg8"
-  },
   {  
-    "text": "Да пошли вы", 
+    "text": "...", 
     "author": "Невидимый человек", 
     "sprite": "nosee", 
-    "audio": "nosee/nosee3"
+    "moneyChange": 60
   },
   {  
     "text": "Здравствуйте, вы должны нам 150 золотых. Осилите?", 
     "author": "Налоговик", 
     "sprite": "taxman",
+    "fatalEnd": 3,
     "moneyChange": -150 
   },
   {  
     "text": "Говорил же, что зайду к тебе. Не хочешь еще чего-нибудь у меня купить?", 
     "author": "Странствующий торговец", 
     "sprite": "shoper",
-    "audio": "shoper/shoper6"
+    "audio": "shop/shop6",
+    "action": "trading"
   },
   {  
     "text": "Завтра к вам опять вернусь", 
     "author": "Странствующий торговец", 
     "sprite": "shoper",
-    "audio": "shoper/shoper5",
+    "audio": "shop/shop5",
     "action":"nextDay"
   }
 ]

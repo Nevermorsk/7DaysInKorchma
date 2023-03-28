@@ -32,7 +32,7 @@
     "text": "Вот, на.",
     "author": "Заказчик",
     "sprite": "krip6",
-    "moneyChange": 80
+    "moneyChange": 180
   },
   {
     "text": "Блин с сахаром не сделаешь? ",
@@ -183,35 +183,30 @@
     "text": "Господин, вы не понимаете, я пришёл протянуть вам руку помощи, о которой вы так просите, подсознательно конечно",
     "author": "Мутный тип",
     "sprite": "bandos",
-    "audio": "bandos/bandos2"
+    "audio": "bandos/bandos3"
   },
   {
-    "text": "Буквально один бокал вина- и никакие сумасшедшие вас больше не побеспокоят",
+    "text": "Буквально один бокал вина - и никакие сумасшедшие вас больше не побеспокоят",
     "author": "Мутный тип",
     "sprite": "bandos",
-    "audio": "bandos/bandos2",
-    "action": "choice"
+    "audio": "bandos/bandos4",
+    "action": "choice3"
   },
   {
-    "text": "Извини, ничем не могу помочь",
-    "author": "Вы",
-    "sprite": "bandos",
-    "audio": "gg/gg35"
-  },
-  {
-    "text": "Окей, минутку",
-    "author": "Вы",
-    "sprite": "bandos",
-    "audio": "gg/gg36"
+    "text": "Похоже вас ограбили...",
+    "author": "...",
+    "sprite": "empty",
+    "action": "zeroMoney"
   },
   {
     "text": "Здравствуйте, 150 золотых",
     "author": "Налоговик",
     "sprite": "taxman",
+    "fatalEnd": 3,
     "moneyChange": -150
   },
   {
-    "text": "Завтра к вам опять вернусь",
+    "text": "Говорил же, что зайду к тебе. Не хочешь еще чего-нибудь у меня купить?",
     "author": "Странствующий торговец",
     "sprite": "shoper",
     "audio": "shoper/shoper6",

@@ -21,7 +21,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject DeclineBtn;
 
     private AudioSource audioSource;
-    private Replica currentDialog;
+    [HideInInspector] public static Replica currentDialog;
 
     private int choiceNum = 0;
     private bool skipDial = false;
@@ -37,19 +37,34 @@ public class DialogueSystem : MonoBehaviour
         IEnumerator Start()
         {
             while (DontDestroy.dayDialogue.IsUnityNull()) yield return null;
-            if (OrderSystem.timerDone) { 
+            if (OrderSystem.timerDone) {
+                Debug.Log("Timer done");
                 if (OrderSystem.fatalEnd != 0)
                 {
                     switch (OrderSystem.fatalEnd)
                     {
                         case 1:
-                            Debug.Log("fatalend 1");
+                            Debug.Log("fatalend 1 если не обслужил звездочета");
+                            transitionScipt.LoadScene("MainMenu", "titles");
                             break;                        
                         case 2:
-                            Debug.Log("fatalend 2");
+                            Debug.Log("fatalend 2 псих взорвал нахуй если не обслужил");
+                            break;                        
+                        case 3:
+                            Debug.Log("fatalend 3 за налоги и если не успел в конце и дойстойно принял судьбу");
+                            break;                        
+                        case 4:
+                            Debug.Log("fatalend 4 если не успел в конце и решил съебаться и обслужил невидимку");
+                            break;                        
+                        case 5:
+                            Debug.Log("fatalend 5 если не успел в конце и решил съебаться и НЕ обслужил невидимку");
+                            break;                        
+                        case 6:
+                            Debug.Log("fatalend 6 хорошая концовка");
                             break;
                     }
                 }
+                OrderSystem.timerDone = false;
                 DontDestroy.dayDialogue.Dequeue();
                 currentDialog = new Replica()
                 {
@@ -166,15 +181,23 @@ public class DialogueSystem : MonoBehaviour
                 isChoice = true;
                 AcceptBtn.SetActive(true);
                 DeclineBtn.SetActive(true);
+                break;            
+            case "choice3":
+                choiceNum = 3;
+                isChoice = true;
+                AcceptBtn.SetActive(true);
+                DeclineBtn.SetActive(true);
                 break;
-       
+            case "zeroMoney":
+                DontDestroy.Money = 0;
+                break;
             case "invDecline":
                 currentDialog = new Replica()
                 {
-                    text = "Да хватит с меня",
-                    author = "Вы",
-                    sprite = "invisible",
-                    audio = "inv/inv3"
+                    text = "Да пошли вы",
+                    author = "Невидимый человек",
+                    sprite = "nosee",
+                    audio = "nosee/nosee3"
                 };
                 textField.text = "";
                 StartCoroutine(TypeLine());
@@ -182,7 +205,7 @@ public class DialogueSystem : MonoBehaviour
                 break;
 
             case "end":
-                SceneManager.LoadScene("End");
+                transitionScipt.LoadScene("MainMenu", "titles");
                 break;
         }
     }
@@ -194,7 +217,7 @@ public class DialogueSystem : MonoBehaviour
                 currentDialog = new Replica()
                 {   text = "Конечно, бать, держи напиток.",
                     author = "Вы",
-                    sprite = "beduin",
+                    sprite = "bedouin",
                     audio = "gg/gg3" 
                 };
                 break;
@@ -203,9 +226,20 @@ public class DialogueSystem : MonoBehaviour
                 {
                     text = "Понял, сейчас все будет.",
                     author = "Вы",
-                    sprite = "invisible",
+                    sprite = "nosee",
                     audio = "gg/gg4",
                     order = "sugar"
+                };
+                break;            
+            case 3:
+                currentDialog = new Replica()
+                {
+                    text = "Окей, минутку",
+                    author = "Вы",
+                    sprite = "bandos",
+                    audio = "gg/gg36",
+                    order = "",
+                    needVine = true
                 };
                 break;
         }
@@ -225,7 +259,7 @@ public class DialogueSystem : MonoBehaviour
                 {
                     text = "Прости, бать, никак выручить не могу.",
                     author = "Вы",
-                    sprite = "beduin",
+                    sprite = "bedouin",
                     audio = "gg/gg3"
                 };
                 DontDestroy.moneyModifyer = 0.5f;
@@ -233,12 +267,22 @@ public class DialogueSystem : MonoBehaviour
             case 2:
                 currentDialog = new Replica()
                 {
-                    text = "Можно понятнее?",
+                    text = "Да хватит мямлить, нормально скажи",
                     author = "Вы",
-                    sprite = "invisible",
-                    audio = "gg/gg4",
+                    sprite = "nosee",
+                    audio = "gg/gg8",
                     action = "invDecline"
                 };
+                break;            
+            case 3:
+                currentDialog = new Replica()
+                {
+                    text = "Извини, ничем не могу помочь",
+                    author = "Вы",
+                    sprite = "bandos",
+                    audio = "gg/gg35",
+                };
+                DontDestroy.dayDialogue.Dequeue();
                 break;
         }
         AcceptBtn.SetActive(false);

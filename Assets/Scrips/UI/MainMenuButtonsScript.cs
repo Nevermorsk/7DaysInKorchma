@@ -13,7 +13,7 @@ public class MainMenuButtonsScript : MonoBehaviour
 
     public void StartClc()
     {
-        transitionScipt.LoadScene("Window 1", 0);
+        SceneManager.LoadScene("difficultyChoice");
     }    
     public void SettingsClc()
     {

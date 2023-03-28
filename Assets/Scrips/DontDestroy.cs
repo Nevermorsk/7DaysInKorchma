@@ -7,14 +7,18 @@ using UnityEngine.SceneManagement;
 public class DontDestroy : MonoBehaviour
 {
     public static int counter;
-    private static int money;
-    public static float moneyModifyer = 1f;
+
+    public static int diffuculty = 0;
+
     private static int day = 0;
     public static int Day { get => day; set {
             day = value;
             loadDialog();
         } }
 
+
+    private static int money;
+    public static float moneyModifyer = 1f;
     public static int Money { get => money; set => money = value; }
 
     public static void loadDialog()
@@ -23,14 +27,13 @@ public class DontDestroy : MonoBehaviour
     }
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
-        { "apple", true },
+        { "apple", false },
         { "sguxa", false },
         { "salmon", false },
         { "chocolatepaste", false },
         { "strawberries", false },
         { "sugar", true },
-        { "upgrade", false },
-        { "vine", true }
+        { "vine", false }
 };
 
     public static Queue<Replica> dayDialogue;
@@ -54,15 +57,22 @@ public class DontDestroy : MonoBehaviour
         else
         {
             Debug.Log("нет денег");
+
+            if (DialogueSystem.currentDialog.fatalEnd == 3)
+            {
+                transitionScipt.LoadScene("MainMenu", "titles");
+            }
             return false;
         }
     }
 
     public void playAnim(int money, char act, bool needSound)
     {
-        GameObject addMoney = GameObject.FindGameObjectWithTag("money").transform.GetChild(0).gameObject;
-        addMoney.GetComponent<TextMeshProUGUI>().text = $"{money} {act}";
-        addMoney.GetComponent<Animator>().SetTrigger("addMoney");
+        if (act == '+') {
+            GameObject addMoney = GameObject.FindGameObjectWithTag("money").transform.GetChild(0).gameObject;
+            addMoney.GetComponent<TextMeshProUGUI>().text = $"{money} {act}";
+            addMoney.GetComponent<Animator>().SetTrigger("addMoney");
+        }
         StartCoroutine(pay(act == '+' ? money : money * -1, needSound));
 
     }
@@ -77,7 +87,7 @@ public class DontDestroy : MonoBehaviour
     {
         if (firstStart)
         {
-            Day = 0;
+            Day = 3;
             firstStart = false;
         }
 
