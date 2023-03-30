@@ -1,0 +1,60 @@
+[
+    {  
+    "text": "Я говорю, можно блин с сахаром?", 
+    "author": "Невидимый человек", 
+    "sprite": "nosee", 
+    "audio": "nosee/nosee2",
+    "action": "choice2"
+  }, 
+  {  
+    "text": "...", 
+    "author": "Невидимый человек", 
+    "sprite": "nosee", 
+    "moneyChange": 60
+  },
+  {
+    "text": "Денег ваших заморских нет, но уверяю, не обижу по оплате..",
+    "author": "Бедуин",
+    "sprite": "bedouin",
+    "audio": "bedouin/bedouin2",
+    "action": "choice1"
+  },
+  {
+    "text": "Ты главное помни, как аукнется, так и откликнется",
+    "author": "Бедуин",
+    "sprite": "bedouin",
+    "audio": "bedouin/bedouin3"
+  },  
+  {
+    "text": "Буквально один бокал вина - и никакие сумасшедшие вас больше не побеспокоят",
+    "author": "Мутный тип",
+    "sprite": "bandos",
+    "audio": "bandos/bandos4",
+    "action": "choice3"
+  },
+  {
+    "text": "Похоже вас ограбили...",
+    "author": "...",
+    "sprite": "empty",
+    "action": "zeroMoney"
+  },
+  {
+    "text": "тогда мне блин.. с солью..",
+    "author": "Лось",
+    "sprite": "moose",
+    "audio": "moose/moose2",
+    "action": "choice4"
+  },
+  {
+    "text": "Спасибо.. подождите, но ведь это не соль.. это должно быть сахар..",
+    "author": "Лось",
+    "sprite": "moose",
+    "audio": "moose/moose3"
+  },
+  {
+    "text": "Лось уходит… ",
+    "author": "Лось",
+    "sprite": "moose",
+    "audio": "moose/moose7"
+  }
+]

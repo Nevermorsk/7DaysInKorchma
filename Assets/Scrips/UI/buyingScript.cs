@@ -10,7 +10,7 @@ public class buyingScript : MonoBehaviour
     [SerializeField] private Button apple;
     [SerializeField] private Button vine;
     [SerializeField] private Button sgushenka;    
-    [SerializeField] private Button salomon;
+    [SerializeField] private Button salmon;
     [SerializeField] private Button strawberry;
     [SerializeField] private Button chocolatepaste;
 
@@ -22,8 +22,6 @@ public class buyingScript : MonoBehaviour
     
     void Start()
     {
-        DontDestroy.Day = 6;
-        Debug.Log($"ui/trading/{DontDestroy.Day}day_menu");
         background.sprite = Resources.Load<Sprite>($"ui/trading/{DontDestroy.Day}day_menu");
 
         switch (DontDestroy.Day)
@@ -53,8 +51,8 @@ public class buyingScript : MonoBehaviour
                 if (DontDestroy.byedItems["vine"]) vine.interactable = false;                
                 sgushenka.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
-                salomon.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["salomon"]) salomon.interactable = false;
+                salmon.gameObject.SetActive(true);
+                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;
                 break;            
             case 5:
                 apple.gameObject.SetActive(true);
@@ -63,8 +61,8 @@ public class buyingScript : MonoBehaviour
                 if (DontDestroy.byedItems["vine"]) vine.interactable = false;                
                 sgushenka.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
-                salomon.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["salomon"]) salomon.interactable = false;                
+                salmon.gameObject.SetActive(true);
+                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;                
                 strawberry.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["strawberries"]) strawberry.interactable = false;
                 break;            
@@ -75,8 +73,8 @@ public class buyingScript : MonoBehaviour
                 if (DontDestroy.byedItems["vine"]) vine.interactable = false;                
                 sgushenka.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
-                salomon.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["salmon"]) salomon.interactable = false;                
+                salmon.gameObject.SetActive(true);
+                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;                
                 strawberry.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["strawberries"]) strawberry.interactable = false;
                 chocolatepaste.gameObject.SetActive(true);
@@ -117,7 +115,7 @@ public class buyingScript : MonoBehaviour
         if (DontDestroy.moneyChange(-130))
         {
             buySound.Play();
-            sgushenka.interactable = false;
+            salmon.interactable = false;
             DontDestroy.byedItems["salomon"] = true;
         }
     }    
@@ -126,7 +124,7 @@ public class buyingScript : MonoBehaviour
         if (DontDestroy.moneyChange(-100))
         {
             buySound.Play();
-            sgushenka.interactable = false;
+            strawberry.interactable = false;
             DontDestroy.byedItems["strawberries"] = true;
         }
     }    
@@ -135,7 +133,7 @@ public class buyingScript : MonoBehaviour
         if (DontDestroy.moneyChange(-85))
         {
             buySound.Play();
-            sgushenka.interactable = false;
+            chocolatepaste.interactable = false;
             DontDestroy.byedItems["chocolatepaste"] = true;
         }
     }

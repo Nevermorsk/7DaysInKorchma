@@ -8,11 +8,12 @@ public class DontDestroy : MonoBehaviour
 {
     public static int counter;
 
-    public static int diffuculty = 0;
+    private static int diffuculty = 0;
 
     private static int day = 0;
     public static int Day { get => day; set {
             day = value;
+            if (day >= 5) moneyModifyer = 1f;
             loadDialog();
         } }
 
@@ -20,10 +21,18 @@ public class DontDestroy : MonoBehaviour
     private static int money;
     public static float moneyModifyer = 1f;
     public static int Money { get => money; set => money = value; }
+    public static int Diffuculty { get => diffuculty; set { diffuculty = value;
+            if (Diffuculty != 3) Money = 300;
+            else Money = 0;
+        }  
+    }
+
+    public static bool youKilledByInv = false;
 
     public static void loadDialog()
     {
         dayDialogue = Replica.MakeQueue($"dialogues_day{day}");
+        //dayDialogue = Replica.MakeQueue($"test");
     }
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
@@ -33,7 +42,10 @@ public class DontDestroy : MonoBehaviour
         { "chocolatepaste", false },
         { "strawberries", false },
         { "sugar", true },
-        { "vine", false }
+        { "vine", false },
+        { "jabba", false },
+        { "bag", false }
+
 };
 
     public static Queue<Replica> dayDialogue;
@@ -60,7 +72,7 @@ public class DontDestroy : MonoBehaviour
 
             if (DialogueSystem.currentDialog.fatalEnd == 3)
             {
-                transitionScipt.LoadScene("MainMenu", "titles");
+                transitionScipt.LoadScene("MainMenu", "bad1");
             }
             return false;
         }
@@ -76,7 +88,7 @@ public class DontDestroy : MonoBehaviour
         StartCoroutine(pay(act == '+' ? money : money * -1, needSound));
 
     }
-
+    
     IEnumerator pay(int newMoney, bool needSound) {
         yield return new WaitForSeconds(0.4f);
         if (needSound) { addMoney.Play(); }
@@ -87,7 +99,7 @@ public class DontDestroy : MonoBehaviour
     {
         if (firstStart)
         {
-            Day = 3;
+            Day = 0;
             firstStart = false;
         }
 
@@ -104,7 +116,7 @@ public class DontDestroy : MonoBehaviour
     {
         text.text = money.ToString();
         string SceneName = SceneManager.GetActiveScene().name;
-        if (SceneName != "Window 1" && SceneName != "Day 1")
+        if (SceneName != "Window 1")
         {
             GameObject.FindGameObjectWithTag("DontDestroy").transform.GetChild(0).gameObject.SetActive(false);
         }

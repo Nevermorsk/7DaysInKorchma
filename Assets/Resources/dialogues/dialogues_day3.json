@@ -255,10 +255,10 @@
     "author": "Вы",
     "sprite": "zhaba",
     "audio": "gg/gg25",
-    "action": "frogtrading1"
+    "action": "frogtrading"
   },
   {
-    "text": "Так как ты выбрался из ямы?",
+    "text": "Так как ты выбралась из ямы?",
     "author": "Вы",
     "sprite": "zhaba",
     "audio": "gg/gg26"

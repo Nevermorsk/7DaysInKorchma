@@ -3,7 +3,8 @@
       "text":"Эй, ты спишь?",
       "author":"Налоговик",
       "sprite":"Taxman",
-      "audio":"taxman/tax13"
+      "audio":"taxman/tax13",
+      "action": "zeroMoney"
    },
    {
       "text":"Просыпайся! День масленицы!",
@@ -33,103 +34,126 @@
       "text":"Теперь один со сгущенкой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"sguha"
-   },
-   {
-      "text":"Сахарный",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar"
-   },
-   {
-      "text":"С яблочком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple"
-   },
-   {
-      "text":"Еще один с сахаром",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar"
-   },
-   {
-      "text":"С сгущенкой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sguha"
-   },
-   {
-      "text":"Шоколадную пасту",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"chocolatepaste"
-   },
-   {
-      "text":"С яблоком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple"
-   },
-   {
-      "text":"С семгой один",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"semga"
-   },
-   {
-      "text":"Теперь один со сгущенкой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sguha"
-   },
-   {
-      "text":"Еще один с сахаром",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar"
-   },
-   {
-      "text":"С яблоком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple"
-   },
-   {
-      "text":"С семгой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"semga"
-   },
-   {
-      "text":"С яблоком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple"
-   },
-   {
-      "text":"С шоколадной пастой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"chocolatepaste"
-   },
-   {
-      "text":"С семгой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"semga"
-   },
-   {
-      "text":"Со сгущенкой бы",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sguha"
+      "order":"sguha",
+      "moneyChange": 1
    },
    {
       "text":"Сахарный",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sugar",
+      "moneyChange": 1
+   },
+   {
+      "text":"С яблочком",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"apple",
+      "moneyChange": 1
+   },
+   {
+      "text":"Еще один с сахаром",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sugar",
+      "moneyChange": 1
+   },
+   {
+      "text":"С сгущенкой",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sguha",
+      "moneyChange": 1
+   },
+   {
+      "text":"Шоколадную пасту",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"chocolatepaste",
+      "moneyChange": 1
+   },
+   {
+      "text":"С яблоком",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"apple",
+      "moneyChange": 1
+   },
+   {
+      "text":"С семгой один",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"semga",
+      "moneyChange": 1
+   },
+   {
+      "text":"Теперь один со сгущенкой",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sguha",
+      "moneyChange": 1
+   },
+   {
+      "text":"Еще один с сахаром",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sugar",
+      "moneyChange": 1
+   },
+   {
+      "text":"С яблоком",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"apple",
+      "moneyChange": 1
+   },
+   {
+      "text":"С семгой",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"semga",
+      "moneyChange": 1
+   },
+   {
+      "text":"С яблоком",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"apple",
+      "moneyChange": 1
+   },
+   {
+      "text":"С шоколадной пастой",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"chocolatepaste",
+      "moneyChange": 1
+   },
+   {
+      "text":"С семгой",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"semga",
+      "moneyChange": 1
+   },
+   {
+      "text":"Со сгущенкой бы",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sguha",
+      "moneyChange": 1
+   },
+   {
+      "text":"Сахарный",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"sugar",
+      "moneyChange": 1
+   },
+   {
+      "text":"Таааак... Посмотрим",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "moneyChange": 1,
       "action":"end"
    }
 ]

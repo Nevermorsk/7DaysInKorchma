@@ -16,7 +16,7 @@ public class difficultyChoice : MonoBehaviour
     
     public void choiceDifficulty(int diff)
     {   
-        DontDestroy.diffuculty = diff;
-        transitionScipt.LoadScene("Window 1", 3);
+        DontDestroy.Diffuculty = diff;
+        transitionScipt.LoadScene("Window 1", 0);
     }
 }

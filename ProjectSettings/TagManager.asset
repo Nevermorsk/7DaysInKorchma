@@ -22,6 +22,7 @@ TagManager:
   - SceneSwitcher
   - trading
   - buttons
+  - frogtrading
   layers:
   - Default
   - TransparentFX

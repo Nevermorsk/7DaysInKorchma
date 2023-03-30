@@ -52,7 +52,10 @@ public class OrderSystem : MonoBehaviour
 
             }
         }
-        else
+        else if (receipt == "" && ColorCheck.vineNeed)
+        {
+            SceneSwitcher.SetActive(true);
+        } else
         {
             StartCoroutine(Delay());
             shadow.SetActive(true);
