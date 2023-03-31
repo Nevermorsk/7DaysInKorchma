@@ -47,7 +47,7 @@ public class transitionScipt : MonoBehaviour
         {
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, $"{videoName}.mp4");
             videoPlayer.Prepare();
-            audioSource.clip = Resources.Load($"audio/toVideo/day{videoName}") as AudioClip;
+            audioSource.clip = Resources.Load($"audio/toVideo/{videoName}") as AudioClip;
         }
         else
         {

@@ -59,6 +59,7 @@ public class ingredientsScript : MonoBehaviour
     {
         Debug.Log("bag");
         DontDestroy.moneyModifyer *= 2f;
+        DontDestroy.byedItems["bag"] = false;
         btn.gameObject.SetActive(false);
     }
 }

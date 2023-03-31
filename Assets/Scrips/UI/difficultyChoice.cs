@@ -15,8 +15,15 @@ public class difficultyChoice : MonoBehaviour
     }
     
     public void choiceDifficulty(int diff)
-    {   
-        DontDestroy.Diffuculty = diff;
-        transitionScipt.LoadScene("Window 1", 0);
+    {
+        if (diff == 3)
+        {
+            transitionScipt.LoadScene("MainMenu", "ebat1");
+        }
+        else
+        {
+            DontDestroy.Diffuculty = diff;
+            transitionScipt.LoadScene("Day 1", DontDestroy.startDay);
+        }
     }
 }

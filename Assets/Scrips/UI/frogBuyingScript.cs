@@ -40,7 +40,12 @@ public class frogBuyingScript : MonoBehaviour
         {
             buySound.Play();
             DontDestroy.byedItems["bag"] = true;
-            close();
+            StartCoroutine(timer());
+            IEnumerator timer()
+            {
+                yield return new WaitForSeconds(1);
+                close();
+            }
         }
     }
 
@@ -51,7 +56,13 @@ public class frogBuyingScript : MonoBehaviour
             buySound.Play();
             DontDestroy.byedItems["jabba"] = true;
             buyed = true;
-            close();
+
+            StartCoroutine(timer());
+            IEnumerator timer()
+            {
+                yield return new WaitForSeconds(2);
+                close();
+            } 
         }
     }
     public void close()

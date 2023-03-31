@@ -5,13 +5,11 @@ using Image = UnityEngine.UI.Image;
 public class OrderSystem : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private float delay;
     [SerializeField] private Sprite[] icons;
     [SerializeField] private GameObject SceneSwitcher;
 
     private GameObject shadow;
     private int _currentSprite;
-
 
     public static string receipt;
     public static int fatalEnd;
@@ -19,7 +17,7 @@ public class OrderSystem : MonoBehaviour
     [HideInInspector] public static bool timerDone = false;
 
     void Start() 
-    {   
+    {
         timerDone = false;
         shadow = GameObject.FindWithTag("OrderShadow");
 
@@ -32,9 +30,14 @@ public class OrderSystem : MonoBehaviour
         if (receipt != "")
         {
             Debug.Log(receipt);
+            if (receipt == null)
+            {
+                GameObject.FindGameObjectWithTag("FryingPan").gameObject.SetActive(false);
+                SceneSwitcher.SetActive(true);
+            }
             
-
-            if (DontDestroy.byedItems[receipt] && (  (DontDestroy.byedItems["vine"] && ColorCheck.vineNeed) || !ColorCheck.vineNeed ) )
+            
+            else if (DontDestroy.byedItems[receipt] && (  (DontDestroy.byedItems["vine"] && ColorCheck.vineNeed) || !ColorCheck.vineNeed ) )
             {
                 Image image = gameObject.transform.GetChild(1).gameObject.GetComponent<Image>();
                 Color currentColor = image.color;
@@ -66,7 +69,7 @@ public class OrderSystem : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(DontDestroy.orderDelay);
         _currentSprite++;
         NextSprite();
     }

@@ -116,7 +116,7 @@ public class buyingScript : MonoBehaviour
         {
             buySound.Play();
             salmon.interactable = false;
-            DontDestroy.byedItems["salomon"] = true;
+            DontDestroy.byedItems["salmon"] = true;
         }
     }    
     public void buyStrawberryClc() {

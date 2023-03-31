@@ -26,6 +26,7 @@ public class DialogueSystem : MonoBehaviour
     private int choiceNum = 0;
     private bool skipDial = false;
     private bool isChoice = false;
+    private bool lastDayAddMoney = true;
     private void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -54,19 +55,21 @@ public class DialogueSystem : MonoBehaviour
                     }
                 }
                 OrderSystem.timerDone = false;
-                DontDestroy.dayDialogue.Dequeue();
-                currentDialog = new Replica()
-                {
-                    text = "Похоже клиент остался недоволен...",
-                    author = "Вы",
-                    sprite = "empty",
-                    audio = "gg/gg_neydov"
-                };
+                if (DontDestroy.Day != 7) {
+                    DontDestroy.dayDialogue.Dequeue();
+                    currentDialog = new Replica()
+                    {
+                        text = "Похоже клиент остался недоволен...",
+                        author = "Вы",
+                        sprite = "empty",
+                        audio = "gg/gg_neydov"
+                    };
+                } else {
+                    lastDayAddMoney = false;
+                    currentDialog = DontDestroy.dayDialogue.Dequeue(); 
+                }
+            } else { currentDialog = DontDestroy.dayDialogue.Dequeue(); }
 
-            } else
-            {
-                currentDialog = DontDestroy.dayDialogue.Dequeue(); 
-            }
             StartCoroutine(TypeLine()); // старт диалога
         }
     }
@@ -88,7 +91,6 @@ public class DialogueSystem : MonoBehaviour
                 skipDial = true;
             }
         }
-
     }
 
     IEnumerator TypeLine()
@@ -158,8 +160,9 @@ public class DialogueSystem : MonoBehaviour
                 
             case "frogtrading":
                 GameObject.FindGameObjectWithTag("frogtrading").transform.GetChild(0).gameObject.SetActive(true);
+                StartCoroutine(waitClose());
 
-                IEnumerator TypeLine() { 
+                IEnumerator waitClose() { 
                     yield return new WaitWhile(() => GameObject.FindGameObjectWithTag("frogtrading").transform.GetChild(0).gameObject.active);
                     if (DontDestroy.Day == 5)
                     {
@@ -183,7 +186,10 @@ public class DialogueSystem : MonoBehaviour
                                 audio = "zhaba/zhaba5"
                             };
                         }
+                        textField.text = "";
+                        StartCoroutine(TypeLine());
                     }
+
                 }
 
                 break;
@@ -192,7 +198,12 @@ public class DialogueSystem : MonoBehaviour
                 Debug.Log($"current day {DontDestroy.Day}");
                 DontDestroy.Day += 1;
                 Debug.Log($"next day {DontDestroy.Day}");
-                transitionScipt.LoadScene($"Window 1", DontDestroy.Day);
+                StartCoroutine(timer());
+                IEnumerator timer()
+                {
+                    yield return new WaitForSeconds(0.5f);
+                    transitionScipt.LoadScene($"Window 1", DontDestroy.Day);
+                }
                 Debug.Log($"day {DontDestroy.Day}");
                 break;
 
@@ -233,6 +244,17 @@ public class DialogueSystem : MonoBehaviour
                 DontDestroy.Money = 0;
                 break;
 
+            case "lastDayCounter":
+                if (lastDayAddMoney)
+                {
+                    DontDestroy.moneyChange(1);
+                }
+                else
+                {
+                    lastDayAddMoney = true;
+                }
+                break;
+                
             case "invDecline":
                 currentDialog = new Replica()
                 {
@@ -296,16 +318,16 @@ public class DialogueSystem : MonoBehaviour
                 {   text = "Конечно, бать, держи напиток.",
                     author = "Вы",
                     sprite = "bedouin",
-                    audio = "gg/gg3" 
+                    audio = "gg/gg10" 
                 };
                 break;
             case 2:
                 currentDialog = new Replica()
                 {
-                    text = "Понял, сейчас все будет.",
+                    text = "Хорошо.",
                     author = "Вы",
                     sprite = "nosee",
-                    audio = "gg/gg4",
+                    audio = "gg/gg20",
                     order = "sugar"
                 };
                 break;            
@@ -356,7 +378,7 @@ public class DialogueSystem : MonoBehaviour
                     text = "Прости, бать, никак выручить не могу.",
                     author = "Вы",
                     sprite = "bedouin",
-                    audio = "gg/gg3"
+                    audio = "gg/gg9"
                 };
                 DontDestroy.moneyModifyer = 0.5f;
                 break;

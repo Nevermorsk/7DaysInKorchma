@@ -43,7 +43,7 @@
     "text": "Вас понял, сейчас им займусь",
     "author": "Вы",
     "sprite": "krip2",
-    "order": "semga"
+    "order": "salmon"
   },
   {
     "text": "Огромное спасибо",
@@ -52,28 +52,22 @@
     "moneyChange": 140
   },
   {
-    "text": "Господь, кто его пустил..",
-    "author": "Вы",
-    "sprite": "headless",
-    "audio": "gg/gg38"
-  },
-  {
     "text": "...",
     "author": "отец?",
-    "sprite": "headlessdad/headlessdad1",
-    "audio": "headless"
+    "sprite": "headless",
+    "audio": "headlessdad/headlessdad1"
   },
   {
     "text": "Отец?",
     "author": "Вы",
     "sprite": "headless",
-    "audio": "gg/gg38"
+    "audio": "gg/gg39"
   },
   {
     "text": "...",
     "author": "отец?",
-    "sprite": "headlessdad/headlessdad2",
-    "audio": "headless",
+    "sprite": "headless",
+    "audio": "headlessdad/headlessdad2",
     "action": "nextDay"
   }
 ]

@@ -58,7 +58,7 @@ public class ColorCheck : MonoBehaviour
             StartCoroutine(Delay1(cookingTime));
             
         }
-        else if (!pancackeDone && ingredientsScript.addedIngredient != null && OrderSystem.receipt != "")
+        else if (ingredientsScript.canAdd && !pancackeDone && ingredientsScript.addedIngredient != null && OrderSystem.receipt != "")
         {
             spriteRenderer.sprite = cap;
             ingredientsScript.canAdd = false;
@@ -88,11 +88,13 @@ public class ColorCheck : MonoBehaviour
         } else
         {
             resetBtn.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
     public void resetClc()
     {
         GetComponent<Drawable>().ResetCanvas();
+
         spriteRenderer.sprite = circle;
         ingredientsScript.addedIngredient = null;
         pancakeMakeFirst = false;
@@ -100,6 +102,7 @@ public class ColorCheck : MonoBehaviour
         pancackeDone = false;
         BarrelDragAndDrop.isFilled = false;
         GameObject.FindGameObjectWithTag("resetBtn").SetActive(false);
+        gameObject.SetActive(true);
     }
     public bool CheckColor(Color targetColor)
     {

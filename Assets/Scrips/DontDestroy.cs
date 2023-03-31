@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
+    public static int startDay = 0;
     public static int counter;
+    public static float orderDelay = 4f;
 
     private static int diffuculty = 0;
 
@@ -24,6 +26,9 @@ public class DontDestroy : MonoBehaviour
     public static int Diffuculty { get => diffuculty; set { diffuculty = value;
             if (Diffuculty != 3) Money = 300;
             else Money = 0;
+
+            if (Diffuculty == 1) orderDelay = 7f;
+            else if (Diffuculty == 2) orderDelay = 5f;
         }  
     }
 
@@ -36,7 +41,7 @@ public class DontDestroy : MonoBehaviour
     }
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
-        { "apple", false },
+        { "apple", true },
         { "sguxa", false },
         { "salmon", false },
         { "chocolatepaste", false },
@@ -99,7 +104,7 @@ public class DontDestroy : MonoBehaviour
     {
         if (firstStart)
         {
-            Day = 0;
+            Day = startDay;
             firstStart = false;
         }
 

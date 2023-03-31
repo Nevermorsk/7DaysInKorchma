@@ -16,10 +16,10 @@
       "text":"мм… чего?",
       "author":"Вы",
       "sprite":"Taxman",
-      "audio":"gg/gg101"
+      "audio":"gg/gg100"
    },
    {
-      "text":"Мы ждем к концу этого дня 15 ваших лучших блинов!",
+      "text":"Мы ждем к концу этого дня как минимум 15 ваших лучших блинов!",
       "author":"Налоговик",
       "sprite":"Taxman",
       "audio":"taxman/tax14"
@@ -34,126 +34,131 @@
       "text":"Теперь один со сгущенкой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"sguha",
-      "moneyChange": 1
+      "order":"sguxa",
+      "action": "lastDayCounter"
    },
    {
       "text":"Сахарный",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sugar",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С яблочком",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"Еще один с сахаром",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sugar",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С сгущенкой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"sguha",
-      "moneyChange": 1
+      "order":"sguxa",
+      "action": "lastDayCounter"
    },
    {
       "text":"Шоколадную пасту",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"chocolatepaste",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С яблоком",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С семгой один",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"semga",
-      "moneyChange": 1
+      "order":"salmon",
+      "action": "lastDayCounter"
    },
    {
       "text":"Теперь один со сгущенкой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"sguha",
-      "moneyChange": 1
+      "order":"sguxa",
+      "action": "lastDayCounter"
    },
    {
       "text":"Еще один с сахаром",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sugar",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С яблоком",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С семгой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"semga",
-      "moneyChange": 1
+      "order":"salmon",
+      "action": "lastDayCounter"
    },
    {
       "text":"С яблоком",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С шоколадной пастой",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"chocolatepaste",
-      "moneyChange": 1
+      "action": "lastDayCounter"
    },
    {
       "text":"С семгой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"semga",
-      "moneyChange": 1
+      "order":"salmon",
+      "action": "lastDayCounter"
    },
    {
       "text":"Со сгущенкой бы",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"sguha",
-      "moneyChange": 1
+      "order":"sguxa",
+      "action": "lastDayCounter"
    },
    {
       "text":"Сахарный",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sugar",
-      "moneyChange": 1
+      "action": "lastDayCounter"
+   },
+   {
+      "text":"Ну, на этом кажется всё.",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "action": "lastDayCounter"
    },
    {
       "text":"Таааак... Посмотрим",
       "author":"Налоговик",
       "sprite":"taxman",
-      "moneyChange": 1,
       "action":"end"
    }
 ]
