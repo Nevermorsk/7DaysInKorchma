@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class buyingScript : MonoBehaviour
@@ -53,6 +50,8 @@ public class buyingScript : MonoBehaviour
                 if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
                 salmon.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;
+                strawberry.gameObject.SetActive(true);
+                if (DontDestroy.byedItems["strawberries"]) strawberry.interactable = false;
                 break;            
             case 5:
                 apple.gameObject.SetActive(true);
@@ -62,24 +61,12 @@ public class buyingScript : MonoBehaviour
                 sgushenka.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
                 salmon.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;                
-                strawberry.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["strawberries"]) strawberry.interactable = false;
-                break;            
-            case 6:
-                apple.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["apple"]) apple.interactable = false;
-                vine.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["vine"]) vine.interactable = false;                
-                sgushenka.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["sguxa"]) sgushenka.interactable = false;                
-                salmon.gameObject.SetActive(true);
-                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;                
+                if (DontDestroy.byedItems["salmon"]) salmon.interactable = false;  
                 strawberry.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["strawberries"]) strawberry.interactable = false;
                 chocolatepaste.gameObject.SetActive(true);
                 if (DontDestroy.byedItems["chocolatepaste"]) chocolatepaste.interactable = false;
-                break;
+                break;            
         }
     }
 

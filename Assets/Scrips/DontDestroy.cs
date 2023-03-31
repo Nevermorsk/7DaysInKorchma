@@ -41,7 +41,7 @@ public class DontDestroy : MonoBehaviour
     }
 
     public static Dictionary<string, bool> byedItems = new Dictionary<string, bool>{
-        { "apple", true },
+        { "apple", false },
         { "sguxa", false },
         { "salmon", false },
         { "chocolatepaste", false },

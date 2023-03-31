@@ -282,7 +282,7 @@ public class DialogueSystem : MonoBehaviour
                 break;
 
             case "end":
-                if (DontDestroy.Money >= 15)
+                if (DontDestroy.Money >= 10)
                 {
                     transitionScipt.LoadScene("MainMenu", "Good"); // Хорошая концовка fatalend 6
                 }

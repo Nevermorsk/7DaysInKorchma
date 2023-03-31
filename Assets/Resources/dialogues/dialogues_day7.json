@@ -19,7 +19,7 @@
       "audio":"gg/gg100"
    },
    {
-      "text":"Мы ждем к концу этого дня как минимум 15 ваших лучших блинов!",
+      "text":"Мы ждем к концу этого дня как минимум 10 ваших лучших блинов!",
       "author":"Налоговик",
       "sprite":"Taxman",
       "audio":"taxman/tax14"
@@ -28,20 +28,24 @@
       "text":"Начинаем сейчас. один с шоколадной пастой",
       "author":"Налоговик",
       "sprite":"taxman",
-      "order":"chocolatepaste"
+      "order":"chocolatepaste",
+      "audio":"taxman/taxorder1",
+      "action": "lastDayCounter"
+   },
+   {
+      "text":"С клубникой бы",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"strawberries",
+      "audio":"taxman/taxorder2",
+      "action": "lastDayCounter"
    },
    {
       "text":"Теперь один со сгущенкой",
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sguxa",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"Сахарный",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar",
+      "audio":"taxman/taxorder3",
       "action": "lastDayCounter"
    },
    {
@@ -49,20 +53,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"Еще один с сахаром",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"С сгущенкой",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sguxa",
+      "audio":"taxman/taxorder4",
       "action": "lastDayCounter"
    },
    {
@@ -70,6 +61,15 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"chocolatepaste",
+      "audio":"taxman/taxorder5",
+      "action": "lastDayCounter"
+   },
+   {
+      "text":"С клубникой сделайте",
+      "author":"Налоговик",
+      "sprite":"taxman",
+      "order":"strawberries",
+      "audio":"taxman/taxorder6",
       "action": "lastDayCounter"
    },
    {
@@ -77,6 +77,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"apple",
+      "audio":"taxman/taxorder7",
       "action": "lastDayCounter"
    },
    {
@@ -84,6 +85,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"salmon",
+      "audio":"taxman/taxorder8",
       "action": "lastDayCounter"
    },
    {
@@ -91,20 +93,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"sguxa",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"Еще один с сахаром",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"С яблоком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple",
+      "audio":"taxman/taxorder9",
       "action": "lastDayCounter"
    },
    {
@@ -112,13 +101,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"salmon",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"С яблоком",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"apple",
+      "audio":"taxman/taxorder10",
       "action": "lastDayCounter"
    },
    {
@@ -126,6 +109,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"chocolatepaste",
+      "audio":"taxman/taxorder11",
       "action": "lastDayCounter"
    },
    {
@@ -133,32 +117,21 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"salmon",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"Со сгущенкой бы",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sguxa",
-      "action": "lastDayCounter"
-   },
-   {
-      "text":"Сахарный",
-      "author":"Налоговик",
-      "sprite":"taxman",
-      "order":"sugar",
+      "audio":"taxman/taxorder12",
       "action": "lastDayCounter"
    },
    {
       "text":"Ну, на этом кажется всё.",
       "author":"Налоговик",
       "sprite":"taxman",
-      "action": "lastDayCounter"
+      "action": "lastDayCounter",
+      "audio":"taxman/taxorder13"
    },
    {
       "text":"Таааак... Посмотрим",
       "author":"Налоговик",
       "sprite":"taxman",
+      "audio":"taxman/taxorder14",
       "action":"end"
    }
 ]

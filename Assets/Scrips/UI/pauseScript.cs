@@ -74,7 +74,8 @@ public class pauseScript : MonoBehaviour
         }
         catch { }
         try {
-            GameObject.FindGameObjectWithTag("dialog").GetComponent<AudioSource>().Pause();
+            Debug.Log("Pause");
+            GameObject.FindGameObjectWithTag("dialog").GetComponents<AudioSource>()[1].Pause();
         } catch { }
         isPaused = true;
     }
@@ -93,7 +94,7 @@ public class pauseScript : MonoBehaviour
         catch { }
         try
         {
-            GameObject.FindGameObjectWithTag("dialog").GetComponent<AudioSource>().Play();
+            GameObject.FindGameObjectWithTag("dialog").GetComponents<AudioSource>()[1].Play();
         }
         catch { }
         isPaused = false;

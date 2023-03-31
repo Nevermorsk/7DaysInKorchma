@@ -60,7 +60,7 @@ public class CupDragAndDrop : MonoBehaviour,IBeginDragHandler, IEndDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         if (!_isDraggable) { return; }
-        rectTransform.anchoredPosition += new Vector2(eventData.delta.x * 1.8f, eventData.delta.y * 1.3f);
+        rectTransform.anchoredPosition += new Vector2(eventData.delta.x, eventData.delta.y);
     }
 
     public void OnEndDrag(PointerEventData eventData)

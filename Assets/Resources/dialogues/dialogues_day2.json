@@ -58,7 +58,7 @@
   },
   {  
     "text": "Отличный блин. Спасибо вам.", 
-    "author": "Вы", 
+    "author": "Заказчик", 
     "sprite": "krip5", 
     "moneyChange": 70 
   },
@@ -92,6 +92,7 @@
     "author": "Налоговик", 
     "sprite": "taxman",
     "fatalEnd": 3,
+    "audio":"taxman/day1tax",
     "moneyChange": -150 
   },
   {  

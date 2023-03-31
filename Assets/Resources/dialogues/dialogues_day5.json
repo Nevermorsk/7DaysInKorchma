@@ -47,14 +47,14 @@
     "audio": "gg/gg101"
   },
   {
-    "text": "тогда мне блин.. с солью..",
+    "text": "Тогда мне блин.. с солью..",
     "author": "Лось",
     "sprite": "moose",
     "audio": "moose/moose2",
     "action": "choice4"
   },
   {
-    "text": "Спасибо.. подождите, но ведь это не соль.. это должно быть сахар.. ",
+    "text": "Подождите, но ведь это не соль.. это должно быть сахар.. ",
     "author": "Лось",
     "sprite": "moose",
     "audio": "moose/moose3"
@@ -79,7 +79,7 @@
     "audio": "gg/gg38"
   },
   {
-    "text": "Тебе всё вынь да полож, бывай, олух",
+    "text": "Тебе всё вынь да положь, бывай, олух",
     "author": "Жаба",
     "sprite": "zhaba",
     "audio": "zhaba/zhaba7"
@@ -88,6 +88,8 @@
     "text": "Ого. 150 сегодня. Неожиданно, да?",
     "author": "Налоговик",
     "sprite": "taxman",
+    "audio": "taxman/day4tax",
+    "fatalEnd": 3,
     "moneyChange": -150
   },
   {  
