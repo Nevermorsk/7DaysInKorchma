@@ -23,6 +23,7 @@ TagManager:
   - trading
   - buttons
   - frogtrading
+  - bagShadow
   layers:
   - Default
   - TransparentFX

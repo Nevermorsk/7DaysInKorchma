@@ -9,6 +9,7 @@ public class OrderSystem : MonoBehaviour
     [SerializeField] private GameObject SceneSwitcher;
 
     private GameObject shadow;
+    private GameObject bagShadow;
     private int _currentSprite;
 
     public static string receipt;
@@ -20,11 +21,13 @@ public class OrderSystem : MonoBehaviour
     {
         timerDone = false;
         shadow = GameObject.FindWithTag("OrderShadow");
+        bagShadow = GameObject.FindWithTag("bagShadow");
 
         foreach (var pair in DontDestroy.byedItems)
         {
             Debug.Log(pair);
             GameObject.Find(pair.Key).SetActive(pair.Value);
+            if (pair.Key == "bag" &&  !pair.Value) bagShadow.gameObject.SetActive(false);  
         }
 
         if (receipt != "")

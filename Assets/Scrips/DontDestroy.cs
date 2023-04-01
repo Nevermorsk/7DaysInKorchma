@@ -58,7 +58,7 @@ public class DontDestroy : MonoBehaviour
     public TextMeshProUGUI text;
     private static bool firstStart = true;
 
-    public static bool moneyChange(int money)
+    public static bool moneyChange(int money, bool needSound = true)
     {
         DontDestroy dontDest = GameObject.FindGameObjectWithTag("DontDestroy").GetComponent<DontDestroy>();
         if (money < 0 && DontDestroy.money >= money * -1)
@@ -68,7 +68,7 @@ public class DontDestroy : MonoBehaviour
         }
         else if (money > 0)
         {
-            dontDest.playAnim((int)Unity.Mathematics.math.round(money*moneyModifyer), '+', true);
+            dontDest.playAnim((int)Unity.Mathematics.math.round(money*moneyModifyer), '+', needSound);
             return true;
         }
         else

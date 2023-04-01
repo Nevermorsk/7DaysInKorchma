@@ -1,16 +1,10 @@
 [
    {
-      "text":"Эй, ты спишь?",
+      "text":"Эй, ты спишь? Просыпайся! День масленицы!",
       "author":"Налоговик",
       "sprite":"Taxman",
-      "audio":"taxman/tax13",
+      "audio":"taxman/taxman13",
       "action": "zeroMoney"
-   },
-   {
-      "text":"Просыпайся! День масленицы!",
-      "author":"Налоговик",
-      "sprite":"Taxman",
-      "audio":"taxman/tax13"
    },
    {
       "text":"мм… чего?",
@@ -29,8 +23,7 @@
       "author":"Налоговик",
       "sprite":"taxman",
       "order":"chocolatepaste",
-      "audio":"taxman/taxorder1",
-      "action": "lastDayCounter"
+      "audio":"taxman/taxorder1"
    },
    {
       "text":"С клубникой бы",

@@ -45,6 +45,11 @@ public class transitionScipt : MonoBehaviour
         videoPlayer.Stop();
         if (videoName != null)
         {
+/*            if (sceneName == "MainMenu")
+            {
+                Destroy(GameObject.FindGameObjectWithTag("DontDestroy"));
+                OrderSystem.receipt = null;
+            }*/
             videoPlayer.url = Path.Combine(Application.streamingAssetsPath, $"{videoName}.mp4");
             videoPlayer.Prepare();
             audioSource.clip = Resources.Load($"audio/toVideo/{videoName}") as AudioClip;

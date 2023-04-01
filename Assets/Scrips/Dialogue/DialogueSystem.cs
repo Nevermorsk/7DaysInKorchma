@@ -247,7 +247,7 @@ public class DialogueSystem : MonoBehaviour
             case "lastDayCounter":
                 if (lastDayAddMoney)
                 {
-                    DontDestroy.moneyChange(1);
+                    DontDestroy.Money += 1;
                 }
                 else
                 {
